@@ -10,3 +10,5 @@
     array_push($styles,'about.css','pageFormat.css');
     require_once __DIR__ . "/HTML/masterpage.php";
 ?>
+
+/*I like that*/
