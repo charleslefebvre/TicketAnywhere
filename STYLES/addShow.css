@@ -1,0 +1,33 @@
+body {
+    overflow: scroll;
+}
+.content {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+}
+.content form {
+    width: 65vw !important;
+}
+.content form select{
+    font-size: 1.25vw;
+}
+.content form .form-row .form-group input {
+    width: 16.5vw;
+    margin-right: 0.5vw;
+}
+.content form #btn-add-section button {
+    margin-right: 1vw;
+    margin-bottom: 2vw;
+    font-size: 1.25vw;
+}
+#image-container{
+    height: 10vw;
+    width: 15vw;
+    position: absolute;
+    top: 4vw;
+    right: 3vw;
+}
+#image-container img {
+    height: 100%;
+}

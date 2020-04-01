@@ -1,0 +1,118 @@
+body {
+    overflow: scroll;
+}
+#tab-container {
+    margin-bottom: 1vw;
+    margin-left: 0.5vw;
+    width: 19vw;
+    height: 2.5vw;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.05);
+}
+#tab-container a {
+    margin-right: 3vw;
+    font-size: 1vw;
+    text-decoration: none;
+    height: 2.5vw;
+    color: #000;
+}
+#tab-container #selected-tab{
+    border-bottom: 3px solid dodgerblue;
+}
+#container{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+#filter {
+    height: 30vw;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1.5vw;
+    background-color: #FFF;
+    border: 1px solid rgb(0, 0, 0, 0.05);
+    border-radius: 1em;
+}
+#filter #header {
+    display: flex;
+    width: 15vw;
+    height: 3.5vw;
+    justify-content: space-between;
+    align-content: flex-start;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.05);
+}
+#filter #header button {
+    height: 2vw;
+    width: 6vw;
+    font-size: 1vw;
+    line-height: 0vw;
+}
+#filter #title,.info-container .title {
+    font-size: 1.75vw;
+    padding-bottom: 1em;
+    color: #3D5A80;
+    width: 15vw;
+}
+#filter .tab {
+    padding-bottom: 1vw;
+    padding-top: 1vw;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.05);
+    width: 15vw;
+}
+#filter .tab-title{
+    font-size: 1.25vw;
+    color: dodgerblue;
+    padding-bottom: 0.5vw;
+}
+#filter .tab select {
+    font-size: 1vw;
+}
+#filter label {
+    font-size: 1vw;
+}
+#list {
+    display: flex;
+    flex-direction: column;
+    width: 65vw;
+    justify-content: center;
+    margin-left: 2em;
+}
+.info-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #FFF;
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 1px solid rgb(0, 0, 0, 0.05);
+    border-radius: 1em;
+}
+.info-container img {
+    height: 12vw;
+    width: 18vw;
+    margin-right: 3vw;
+}
+.info-container .infos {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10vw;
+    width: 15vw;
+}
+.info-container .infos .artist, .price, .category, .ticket {
+    font-size: 1vw;
+}
+.info-container .button-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 25vw;
+
+}
+.info-container .button-container button {
+    height: auto;
+    width: 10vw;
+    font-size: 1vw;
+}
