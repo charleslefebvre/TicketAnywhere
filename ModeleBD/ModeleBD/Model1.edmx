@@ -97,6 +97,7 @@
           <Property Name="Ticket_id" Type="String" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Model1.UserShopping_Cart" FromRole="Shopping_Cart" ToRole="User" />
           <NavigationProperty Name="Ticket" Relationship="Model1.Shopping_CartTicket" FromRole="Shopping_Cart" ToRole="Ticket" />
+          <Property Name="Quantity" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="UserShopping_Cart">
           <End Type="Model1.User" Role="User" Multiplicity="*" />
