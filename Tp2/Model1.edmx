@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="Model1TargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="JoueurSet" EntityType="Model1.Joueur" />
+          <EntitySet Name="AchatsSet" EntityType="Model1.Achats" />
+          <EntitySet Name="ItemsSet" EntityType="Model1.Items" />
+          <EntitySet Name="HistoriqueSet" EntityType="Model1.Historique" />
+          <AssociationSet Name="JoueurItems" Association="Model1.JoueurItems">
+            <End Role="Joueur" EntitySet="JoueurSet" />
+            <End Role="Items" EntitySet="ItemsSet" />
+          </AssociationSet>
+          <AssociationSet Name="HistoriqueAchats" Association="Model1.HistoriqueAchats">
+            <End Role="Historique" EntitySet="HistoriqueSet" />
+            <End Role="Achats" EntitySet="AchatsSet" />
+          </AssociationSet>
+          <AssociationSet Name="JoueurAchats" Association="Model1.JoueurAchats">
+            <End Role="Joueur" EntitySet="JoueurSet" />
+            <End Role="Achats" EntitySet="AchatsSet" />
+          </AssociationSet>
+          <AssociationSet Name="ItemsAchats" Association="Model1.ItemsAchats">
+            <End Role="Items" EntitySet="ItemsSet" />
+            <End Role="Achats" EntitySet="AchatsSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Armes" BaseType="Model1.Items">
+          <Property Name="Efficacité" Type="String" Nullable="false" />
+          <Property Name="Genre" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Potions" BaseType="Model1.Items">
+          <Property Name="Effet_Attendu" Type="String" Nullable="false" />
+          <Property Name="Durée_Effet" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Armures" BaseType="Model1.Items">
+          <Property Name="Matière" Type="String" Nullable="false" />
+          <Property Name="Poids" Type="String" Nullable="false" />
+          <Property Name="Taille" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Joueur">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Allias" Type="String" Nullable="false" />
+          <Property Name="Nom" Type="String" Nullable="false" />
+          <Property Name="Prénom" Type="String" Nullable="false" />
+          <Property Name="Montant_Initial" Type="String" Nullable="false" />
+          <NavigationProperty Name="Items" Relationship="Model1.JoueurItems" FromRole="Joueur" ToRole="Items" />
+          <NavigationProperty Name="Achats" Relationship="Model1.JoueurAchats" FromRole="Joueur" ToRole="Achats" />
+        </EntityType>
+        <EntityType Name="Achats">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quantité_Acheté" Type="String" Nullable="false" />
+          <NavigationProperty Name="Historique" Relationship="Model1.HistoriqueAchats" FromRole="Achats" ToRole="Historique" />
+          <NavigationProperty Name="Joueur" Relationship="Model1.JoueurAchats" FromRole="Achats" ToRole="Joueur" />
+          <Property Name="JoueurId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Items" Relationship="Model1.ItemsAchats" FromRole="Achats" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" Nullable="false" />
+          <Property Name="Quantité_Inventaire" Type="String" Nullable="false" />
+          <Property Name="Prix" Type="String" Nullable="false" />
+          <Property Name="Quantité_Min_Inventaire" Type="String" Nullable="false" />
+          <NavigationProperty Name="Joueur" Relationship="Model1.JoueurItems" FromRole="Items" ToRole="Joueur" />
+          <NavigationProperty Name="Achats" Relationship="Model1.ItemsAchats" FromRole="Items" ToRole="Achats" />
+        </EntityType>
+        <EntityType Name="Historique">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Contenu_Panier" Type="String" Nullable="false" />
+          <Property Name="Date" Type="String" Nullable="false" />
+          <NavigationProperty Name="Achats" Relationship="Model1.HistoriqueAchats" FromRole="Historique" ToRole="Achats" />
+        </EntityType>
+        <Association Name="JoueurItems">
+          <End Type="Model1.Joueur" Role="Joueur" Multiplicity="*" />
+          <End Type="Model1.Items" Role="Items" Multiplicity="*" />
+        </Association>
+        <Association Name="HistoriqueAchats">
+          <End Type="Model1.Historique" Role="Historique" Multiplicity="*" />
+          <End Type="Model1.Achats" Role="Achats" Multiplicity="0..1" />
+        </Association>
+        <Association Name="JoueurAchats">
+          <End Type="Model1.Joueur" Role="Joueur" Multiplicity="1" />
+          <End Type="Model1.Achats" Role="Achats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Joueur">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Achats">
+              <PropertyRef Name="JoueurId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ItemsAchats">
+          <End Type="Model1.Items" Role="Items" Multiplicity="*" />
+          <End Type="Model1.Achats" Role="Achats" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Model1" />
+        <Alias Key="Target" Value="Model1.Store" />
+        <EntityContainerMapping CdmEntityContainer="Model1Container" StorageEntityContainer="Model1TargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

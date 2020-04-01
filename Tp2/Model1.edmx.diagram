@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5774c1c3f09442a289aa274c1fc7c67b" Name="Diagram1" ZoomLevel="77" >
+        <EntityTypeShape EntityType="Model1.Armes" Width="2.25" PointX="1.875" PointY="0.625" />
+        <EntityTypeShape EntityType="Model1.Potions" Width="2.125" PointX="6.5" PointY="0.75" />
+        <EntityTypeShape EntityType="Model1.Armures" Width="2.25" PointX="0.5" PointY="3.75" />
+        <EntityTypeShape EntityType="Model1.Joueur" Width="2.125" PointX="9.25" PointY="3.5" />
+        <EntityTypeShape EntityType="Model1.Achats" Width="2.125" PointX="4.25" PointY="7.125" />
+        <EntityTypeShape EntityType="Model1.Items" Width="2.25" PointX="4" PointY="3.5" />
+        <EntityTypeShape EntityType="Model1.Historique" Width="2.125" PointX="8.75" PointY="7.125" />
+        <InheritanceConnector EntityType="Model1.Armes" />
+        <InheritanceConnector EntityType="Model1.Armures" />
+        <InheritanceConnector EntityType="Model1.Potions" />
+        <AssociationConnector Association="Model1.JoueurItems" />
+        <AssociationConnector Association="Model1.HistoriqueAchats" />
+        <AssociationConnector Association="Model1.JoueurAchats" />
+        <AssociationConnector Association="Model1.ItemsAchats" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
