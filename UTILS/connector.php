@@ -9,10 +9,10 @@ class DBAO {
     private $charset;
 
     protected function __construct(){
-        $this->servername = "localhost";
-        $this->username = "root";
-        $this->password = "";
-        $this->dbname = "pfi";
+        $this->servername = "167.114.152.54";
+        $this->username = "equipe05";
+        $this->password = "in5vest05";
+        $this->dbname = "dbequipe05";
         $this->charset = "utf8mb4";
     }
 

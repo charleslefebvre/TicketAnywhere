@@ -1,11 +1,26 @@
 <?php
     $userArray = array();
-    if(!    isset($_SESSION['userID'])){
-        array_push($userArray,"<button class='btn' id='login'onclick='window.location.href=`login.php`'>Login</button>",
-        "<button class='btn' id='register' onclick='window.location.href=`register.php`'>Register</button>");
+    $dropDownItems = array('About');
+    if(!isset($_SESSION['userID'])){
+        $userButtons = array('Login','Register');
+        foreach($userButtons as $button){
+            array_push($userArray,"<button class='btn' id='".strtolower($button)."'onclick='window.location.href=`".strtolower($button).".php`'>$button</button>");
+        }
+        array_push($dropDownItems,'Login','Register');
     }
     else{
-        array_push($userArray,"<p>Username</p>","<img src='IMG/user.png'>");
+        array_push($userArray,"<p>".$_SESSION['userName']."</p>",
+
+        "<div class='dropdown'>
+            <button class='btn' id='dropdownMenuButton' data-toggle='dropdown'>
+                <img src='IMG/user.png'>
+            </button>
+            <div class='dropdown-menu dropdown-menu-right' aria-labelledby='dropdownMenuButton'>
+                <a class='dropdown-item' href='cart.php'>My cart</a>
+                <a class='dropdown-item' href='settings.php'>Settings</a>
+            </div>
+        </div>");
+        array_push($dropDownItems,'Logout');
     }
 ?>
 <div id="navbar">
@@ -14,10 +29,11 @@
             <img src="IMG/hamburger.png" >
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="about.php">About</a>
-            <a class="dropdown-item" href="#">Contact</a>
-            <a class="dropdown-item" href="login.php">Login</a>
-            <a class="dropdown-item" href="register.php">Register</a>
+        <?php
+            foreach($dropDownItems as $item){
+                echo "<a class='dropdown-item' href='".strtolower($item).".php'>$item</a>";
+            }
+        ?>
         </div>
     </div>
     <a href="./" id="title"><h6>Ticket</h6><h6>Anywhere</h6></a>

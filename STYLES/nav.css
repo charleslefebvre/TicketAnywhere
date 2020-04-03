@@ -5,6 +5,9 @@
     height: 5vw;
     align-items: center;
 }
+#navbar .dropdown a{
+    font-size: 1vw;
+}
 #navbar img {
     height: 3vw;
 }
@@ -40,8 +43,9 @@
    height: 5vw;
    justify-content: flex-end;
    align-items: center;
+   position: relative;
 }
-#user-container button {
+#user-container #register,#login {
     margin-right: 5%;
     height: 3vw;
     width: 11vw;
@@ -49,18 +53,18 @@
     line-height: 0vw;
     transition: all .3s ease-out;
 }
-#user-container button:hover{
+#user-container #register:hover,#login:hover{
     border: 1px solid #FFF;
 }
 #user-container img {
     height: 3vw;
 }
 #user-container p{
-    align-self: center;
-    margin-right: 3%;
-    align-self: center;
-    font-size: 1vw;
+    font-size: 1.25vw;
     color: #FFF;
+    position: absolute;
+    top: 35%;
+    right: 15%;
 }
 #register {
     background-color: #EE6C4D;
