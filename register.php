@@ -7,6 +7,7 @@
 
     $title = "Register";
     $styles = array();
+    $script = "register.js";
     array_push($styles,'form.css','pageFormat.css');
     require_once __DIR__ . "/HTML/masterpage.php";
 ?>

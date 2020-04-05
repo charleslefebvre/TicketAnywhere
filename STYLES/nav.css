@@ -65,6 +65,8 @@
     position: absolute;
     top: 35%;
     right: 15%;
+    height: 3.2vw;
+    border-bottom: 1px solid #EE6C4D;
 }
 #register {
     background-color: #EE6C4D;

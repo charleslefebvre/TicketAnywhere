@@ -27,7 +27,7 @@
     width: 25vw;
     font-size: 1.25vw;
 }
-.jumbotron form [type="submit"] {
+.jumbotron form .btn {
     background-color: #3D5A80;
     color: #FFF;
     align-self: center;

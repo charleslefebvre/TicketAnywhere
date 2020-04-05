@@ -48,29 +48,25 @@ class User
 
         return true;
     }
-    public function validate_register($email)
+    public function existing_account($email)
     {
         $TDG = UserTDG::getInstance();
-        $res = $TDG->get_by_email($email);
+        $existing = $TDG->get_by_email($email);
         $TDG = null;
-        if ($res) {
-            return false;
-        }
-
-        return true;
+        return(!$existing)?false:true;
     }
-
-
-    public function register($email, $f_name, $l_name, $pw)
+    public function register($f_name, $l_name, $email, $pw)
     {
-        if(!validate_register($email)){
+        if($this->existing_account($email)){
             $_SESSION['error'] = "Email is already registered";
             return false;
         }
-           
-
         $TDG = UserTDG::getInstance();
-        $res = $TDG->add_user($email, $f_name, $l_name, password_hash($pw, PASSWORD_DEFAULT));
+        $resp = $TDG->register($f_name, $l_name, $email,password_hash($pw, PASSWORD_DEFAULT));
+        if(!$resp){
+            $_SESSION['error'] = "An error occured during the process of register";
+            return false;
+        }
         $TDG = null;
         return true;
     }
