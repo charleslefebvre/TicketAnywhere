@@ -19,7 +19,3 @@ in pw varchar(100)
 begin
 	insert into users (f_name,l_name,email,pw) values (f_name,l_name,email,pw);
 end;
-
-call register('Charlie;fjhw;fuwhf;wfjflehbflwehb','Berryfkehgflwiuhfelfhweflhwef','charle4@live.ca','123');
-
-select * from users;
