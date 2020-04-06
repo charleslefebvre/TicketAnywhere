@@ -31,6 +31,7 @@ auditorium_id int,
 date date,
 artist_id int,
 category_name varchar(30),
+imageURL varchar(10),
 constraint fk_auditorium_id_auditorium foreign key(auditorium_id) references
 auditoriums(id),
 constraint fk_artist_id_artist foreign key (artist_id) references
