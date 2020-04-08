@@ -55,4 +55,8 @@ tickets(id),
 constraint fk_user_id_user foreign key(user_id) references
 users(id)
 );
+<<<<<<< HEAD
 	
+=======
+	
+>>>>>>> 3b9b4a7... Update

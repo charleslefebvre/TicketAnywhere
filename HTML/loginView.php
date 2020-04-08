@@ -13,7 +13,11 @@
     </div>
     <div class="form-group">
         <label>Password</label>
+<<<<<<< HEAD
         <input type="password" class="form-control long" placeholder="Enter password">
+=======
+        <input name="pw" type="password" class="form-control long" placeholder="Enter password">
+>>>>>>> 3b9b4a7... Update
     </div>
     <button type="submit" class="btn">Login</button>
 </form>

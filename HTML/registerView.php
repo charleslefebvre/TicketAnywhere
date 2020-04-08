@@ -33,7 +33,11 @@
             <input name="cpw" type="password" class="form-control" placeholder="Enter confirmation">
         </div>
     </div>       
+<<<<<<< HEAD
     <button type="button" class="btn">Register</button>
+=======
+    <button type="btn" class="btn">Register</button>
+>>>>>>> 3b9b4a7... Update
 </form>
 
 
