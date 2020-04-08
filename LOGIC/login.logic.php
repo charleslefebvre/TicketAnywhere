@@ -15,11 +15,7 @@
     $user = new User();
 
     if($user->login($email, $pw))
-<<<<<<< HEAD
-        header("Location: ../index.php");
-=======
         header("Location: ../");
->>>>>>> 3b9b4a7... Update
     else
         header("Location: ../login.php");
     die();
