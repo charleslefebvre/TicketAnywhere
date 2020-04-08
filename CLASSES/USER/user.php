@@ -25,11 +25,7 @@ class User
         $this->id = $res['id'];
         $this->email = $res['email'];
         $this->userName = $res['f_name'] . " " . $res['l_name'];
-<<<<<<< HEAD
-        $this->password = $res['password'];
-=======
         $this->password = $res['pw'];
->>>>>>> 3b9b4a7... Update
 
         $TDG = null;
         return true;
@@ -42,17 +38,10 @@ class User
         if (!$this->load_user($email)) {
             return false;
         }
-
-<<<<<<< HEAD
-        /*if (!password_verify($pw, $this->password)) {
-            TODO!
-        }*/
-=======
         if (!password_verify($pw, $this->password)) {
             $_SESSION['error'] = "No account found with given email and password!";
             return false;
         }
->>>>>>> 3b9b4a7... Update
         $_SESSION["userID"] = $this->id;
         $_SESSION["userEmail"] = $this->email;
         $_SESSION["userName"] = $this->userName;
