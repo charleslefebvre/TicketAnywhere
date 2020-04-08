@@ -3,18 +3,10 @@ $(document).ready(function() {
     $('#register-form').validate({
         rules: {
             f_name: {
-                required: true,
-<<<<<<< HEAD
-                lettersonly: true
+                required: true
             },
             l_name: {
-                required: true,
-                lettersonly: true
-=======
-            },
-            l_name: {
-                required: true,
->>>>>>> 3b9b4a7... Update
+                required: true
             },
             email: {
                 required: true,
@@ -43,12 +35,6 @@ $(document).ready(function() {
         },
     });
     $('.btn').click(() => {
-<<<<<<< HEAD
-        if($("#register-form").valid()){
-            console.log('sub');
-        }
-=======
         $('#register-form').submit();
->>>>>>> 3b9b4a7... Update
     })
 });
