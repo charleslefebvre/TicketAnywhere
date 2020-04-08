@@ -17,12 +17,11 @@
             <input name="l_name" type="text" class="form-control" placeholder="Enter last name">
         </div>
     </div>
-    <div class="form-row ">
+    <div class="form-row">
         <div class="form-group col-md-6">
             <label>Email</label>
             <input name="email" type="email" class="form-control long" placeholder="Enter email">
         </div>
-    </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label>Password</label>
@@ -33,7 +32,7 @@
             <input name="cpw" type="password" class="form-control" placeholder="Enter confirmation">
         </div>
     </div>       
-    <button type="btn" class="btn">Register</button>
+    <button style="margin-left: 12.5vw" type="submit" class="btn submit">Register</button>
 </form>
 
 

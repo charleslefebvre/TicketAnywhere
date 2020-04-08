@@ -15,4 +15,5 @@ body {
 }
 .error {
     color: #D9534F;
+    font-size: 1.5vw;
 }

@@ -10,7 +10,7 @@ body {
     width: 65vw !important;
 }
 .content form select{
-    font-size: 1.25vw;
+    font-size: 1.5vw;
 }
 .content form .form-row .form-group input {
     width: 16.5vw;
@@ -19,7 +19,7 @@ body {
 .content form #btn-add-section button {
     margin-right: 1vw;
     margin-bottom: 2vw;
-    font-size: 1.25vw;
+    font-size: 1.5vw;
 }
 #image-container{
     height: 10vw;

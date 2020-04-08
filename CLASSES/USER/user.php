@@ -38,6 +38,7 @@ class User
         if (!$this->load_user($email)) {
             return false;
         }
+
         if (!password_verify($pw, $this->password)) {
             $_SESSION['error'] = "No account found with given email and password!";
             return false;

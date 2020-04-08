@@ -59,6 +59,6 @@
         <button style="display: none" id="remove-section" type="button"class="btn btn-danger">Remove section</button>
     </div>
     <input style="display: none" type="file" name="showImage" id="file-reader" onchange="readURL(this);">
-    <button type="submit" class="btn submit">Add</button>
+    <button type="submit" class="btn">Add</button>
     </form>
 </div>

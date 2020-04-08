@@ -3,10 +3,10 @@ $(document).ready(function() {
     $('#register-form').validate({
         rules: {
             f_name: {
-                required: true
+                required: true,
             },
             l_name: {
-                required: true
+                required: true,
             },
             email: {
                 required: true,
@@ -34,7 +34,7 @@ $(document).ready(function() {
             } 
         },
     });
-    $('.btn').click(() => {
+    $('.submit').click(() => {
         $('#register-form').submit();
     })
 });

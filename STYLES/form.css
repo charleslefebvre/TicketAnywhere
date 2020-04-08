@@ -1,6 +1,3 @@
-.jumbotron p {
-    font-size: 1.5vw;
-}
 .jumbotron form {
     margin-top: 2vw;
     display: flex;
@@ -13,7 +10,7 @@
     background-color: #FFF;
     border: 0.5px solid #1C1C1C;
     border-radius: 1em;
-    font-size: 1.25vw;
+    font-size: 1.5vw;
     box-shadow : 10px 5px 10px #D3D3D3;
 }
 .jumbotron form .form-group {
@@ -25,26 +22,30 @@
 }
 .jumbotron form input {
     width: 25vw;
-    font-size: 1.25vw;
+    font-size: 1.5vw;
 }
-.jumbotron form .btn {
+.jumbotron form .submit {
     background-color: #3D5A80;
     color: #FFF;
     align-self: center;
-    width: 30vw;
-    font-size: 1.25vw;
+    width: 25vw;
+    font-size: 1.5vw;
     margin-top: 0.5em;
 }
 @media screen and (max-width: 765px) {
-    .jumbotron form .long  {
-        width: 25vw;      
+    .jumbotron form input {
+        width: 50.5vw;      
     }
     .jumbotron form {
-        width: 40vw;
+        width: 65vw;
     }
-    .jumbotron form #submit {
-        margin-top: 0;
+    
+    .jumbotron form .btn {
         width: 25vw;
-        align-self: flex-start;
+    }
+}
+@media screen and (max-width: 450px){
+    .jumbotron form, .jumbotron form input,.jumbotron form .submit {
+        font-size: 2vw;
     }
 }
