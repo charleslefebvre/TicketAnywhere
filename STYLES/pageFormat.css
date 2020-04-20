@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .jumbotron #title {
     font-size: 3vw;
     width: 45%;
@@ -6,13 +5,4 @@
     border-bottom: 0.25px solid black;
     margin-bottom: 1em;
     font-weight: 400;
-=======
-.jumbotron #title {
-    font-size: 3vw;
-    width: 45%;
-    padding-bottom: 0.5em;
-    border-bottom: 0.25px solid black;
-    margin-bottom: 1em;
-    font-weight: 400;
->>>>>>> 670ebc6... Update
 }
