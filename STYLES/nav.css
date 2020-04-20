@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #navbar {
     display: flex;
     background-color: #1C1C1C;
@@ -76,4 +77,84 @@
 #login {
     background-color: #3D5A80;
     color: #E0FBFC;
+=======
+#navbar {
+    display: flex;
+    background-color: #1C1C1C;
+    padding: 1%;
+    height: 5vw;
+    align-items: center;
+}
+#navbar .dropdown a{
+    font-size: 1vw;
+}
+#navbar img {
+    height: 3vw;
+}
+#navbar #title {
+    display: flex;
+    align-items: flex-start;
+    width: 15vw;
+    margin-right: 10%;
+    margin-left: 3%;
+    margin-top: 1%;
+    text-decoration: none;
+    line-height: 0%;
+}
+#navbar #title h6 {
+    width: 20vw;
+    color: #98C1D9;
+    font-size: 2.5vw;
+    font-family: 'Rubik', sans-serif;;
+}
+#navbar #title h6 + h6 {
+    color: #E0FBFC
+}
+#navbar #search-bar {
+    height: 3vw;
+    width: 40vw;
+}
+#navbar input {
+    height: 3vw;
+    font-size: 1.25vw;
+}
+#user-container {
+   display: flex;
+   width: 50%;
+   height: 5vw;
+   justify-content: flex-end;
+   align-items: center;
+   position: relative;
+}
+#user-container #register,#login {
+    margin-right: 5%;
+    height: 3vw;
+    width: 11vw;
+    font-size: 1.25vw;
+    line-height: 0vw;
+    transition: all .3s ease-out;
+}
+#user-container #register:hover,#login:hover{
+    border: 1px solid #FFF;
+}
+#user-container img {
+    height: 3vw;
+}
+#user-container p{
+    font-size: 1.25vw;
+    color: #FFF;
+    position: absolute;
+    top: 35%;
+    right: 15%;
+    height: 3.2vw;
+    border-bottom: 1px solid #EE6C4D;
+}
+#register {
+    background-color: #EE6C4D;
+    color: #E0FBFC;
+}
+#login {
+    background-color: #3D5A80;
+    color: #E0FBFC;
+>>>>>>> 670ebc6... Update
 }
