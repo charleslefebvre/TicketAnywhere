@@ -22,7 +22,8 @@ pw varchar(100)
 create table auditoriums
 (
 id int auto_increment primary key,
-address varchar(45),
+name varchar(60),
+address varchar(100),
 capacity int
 );
 create table categories
@@ -43,11 +44,11 @@ create table shows
 (
 id int auto_increment primary key,
 name varchar(45),
-description varchar(45),
+description varchar(200),
 category_id int,
 starting_price decimal,
 artist_name varchar(45),
-imageURL varchar(10),
+imageURL varchar(250),
 constraint fk_category_id_shows foreign key (category_id) references
 categories(id)
 );
