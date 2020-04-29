@@ -12,23 +12,21 @@ function load_styles($styleList){
     }
 }
 function load_tabs(){
-    echo "<div id='tab-container'>";
-        if(isset($_GET['tab'])){         
-            $query = filter_query();
-            $tabSelected = $_GET['tab'];
-            echo "<div id='tab-container'><a ";
-            if($tabSelected == 'artists'){echo"id='selected-tab'";}echo"href='?tab=artists$query'>Artists</a><a ";
-            if($tabSelected == 'auditoriums'){echo"id='selected-tab'";}echo"href='?tab=auditoriums$query'>Auditoriums</a><a ";
-            if($tabSelected == 'categories'){echo"id='selected-tab'";}echo"href='?tab=categories".$query."'>Categories</a></div>"; 
-        }
-        else {
-            echo"
-                <a id='selected-tab' href='?tab=artists'>Artists</a>
-                <a href='?tab=auditoriums'>Auditoriums</a>
-                <a href='?tab=categories'>Categories</a>
-            ";
-        }
-        echo "</div>";
+    if(isset($_GET['tab'])){         
+        $query = filter_query();
+        $tabSelected = $_GET['tab'];
+        echo "<div id='tab-container'><a ";
+        if($tabSelected == 'artists'){echo"id='selected-tab'";}echo"href='?tab=artists$query'>Artists</a><a ";
+        if($tabSelected == 'auditoriums'){echo"id='selected-tab'";}echo"href='?tab=auditoriums$query'>Auditoriums</a><a ";
+        if($tabSelected == 'categories'){echo"id='selected-tab'";}echo"href='?tab=categories".$query."'>Categories</a></div>"; 
+    }
+    else {
+        echo"
+            <a id='selected-tab' href='?tab=artists'>Artists</a>
+            <a href='?tab=auditoriums'>Auditoriums</a>
+            <a href='?tab=categories'>Categories</a>
+        ";
+    }
 } 
 function filter_query(){
     $string = "";

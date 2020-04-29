@@ -1,6 +1,14 @@
 body {
     overflow: scroll;
 }
+.jumbotron {
+    display: flex;
+    flex-direction: row;
+}
+#filter-container {
+    display: flex;
+    flex-direction: column;
+}
 #tab-container {
     margin-bottom: 1vw;
     margin-left: 0.5vw;
@@ -25,7 +33,10 @@ body {
     flex-direction: row;
     position: relative;
 }
-#filter {
+#filterS{
+    display: none;
+}
+#filterB {
     height: 30vw;
     width: 20vw;
     display: flex;
@@ -37,7 +48,7 @@ body {
     border: 1px solid rgb(0, 0, 0, 0.05);
     border-radius: 1em;
 }
-#filter #header {
+#filterB #header {
     display: flex;
     width: 15vw;
     height: 3.5vw;
@@ -45,33 +56,33 @@ body {
     align-content: flex-start;
     border-bottom: 1px solid rgb(0, 0, 0, 0.05);
 }
-#filter #header button {
+#filterB #header button {
     height: 2vw;
     width: 6vw;
     font-size: 1vw;
     line-height: 0vw;
 }
-#filter #title,.info-container .title {
+#filterB #title,.info-container .title {
     font-size: 1.75vw;
     padding-bottom: 1em;
     color: #3D5A80;
     width: 15vw;
 }
-#filter .tab {
+#filterB .tab {
     padding-bottom: 1vw;
     padding-top: 1vw;
     border-bottom: 1px solid rgb(0, 0, 0, 0.05);
     width: 15vw;
 }
-#filter .tab-title{
+#filterB .tab-title{
     font-size: 1.25vw;
     color: dodgerblue;
     padding-bottom: 0.5vw;
 }
-#filter .tab select {
+#filterB .tab select {
     font-size: 1vw;
 }
-#filter label {
+#filterB label {
     font-size: 1vw;
 }
 #list {
@@ -115,4 +126,26 @@ body {
     height: auto;
     width: 10vw;
     font-size: 1vw;
+}
+
+@media screen and (max-width: 1024px){
+    #container{
+        flex-direction: column;
+    }
+    #filterB {
+        display: none;
+    }
+    #list{
+        width: 85vw;
+        margin-left: 0;
+    }
+    #filterS{
+        display: flex;
+    }
+    #filter-container {
+        flex-direction: row;
+    }
+    .jumbotron {
+        flex-direction: column;
+    }
 }

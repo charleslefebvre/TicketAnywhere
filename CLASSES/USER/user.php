@@ -56,14 +56,14 @@ class User
         $TDG = null;
         return(!$existing)?false:true;
     }
-    public function register($f_name, $l_name, $email, $address, $pw)
+    public function register($f_name, $l_name, $email, $address,$city,$zip,$pw)
     {
         if($this->existing_account($email)){
             $_SESSION['error'] = "Email is already registered";
             return false;
         }
         $TDG = UserTDG::getInstance();
-        $resp = $TDG->register($f_name, $l_name, $email, $address,password_hash($pw, PASSWORD_DEFAULT));
+        $resp = $TDG->register($f_name, $l_name, $email, $address,$city,$zip,password_hash($pw, PASSWORD_DEFAULT));
         if(!$resp){
             $_SESSION['error'] = "An error occured during the process of register";
             return false;

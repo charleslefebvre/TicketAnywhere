@@ -15,6 +15,8 @@ f_name varchar(30),
 l_name varchar(30),
 email varchar(50),
 address varchar(45),
+city varchar(45),
+zip_code varchar(6),
 pw varchar(100)
 );
 create table auditoriums
@@ -95,3 +97,5 @@ tickets(id),
 constraint fk_purchase_id_real foreign key (purchase_id) references
 purchases(id)
 );
+
+select * from clients;

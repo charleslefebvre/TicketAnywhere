@@ -35,17 +35,19 @@ class UserTDG extends DBAO{
         $conn = null;
         return $result;
     }
-    public function register($f_name, $l_name, $email, $address, $pw){
+    public function register($f_name, $l_name, $email, $address,$city,$zip,$pw){
 
         try{
             $conn = $this->connect();
-            $query = 'call register(?,?,?,?,?)';
+            $query = 'call register(?,?,?,?,?,?,?)';
             $stmt = $conn->prepare($query);
             $stmt->bindParam(1, $f_name, PDO::PARAM_STR, 25);
             $stmt->bindParam(2, $l_name, PDO::PARAM_STR, 25);
             $stmt->bindParam(3, $email, PDO::PARAM_STR, 50);
             $stmt->bindParam(4, $address, PDO::PARAM_STR, 50);
-            $stmt->bindParam(5, $pw, PDO::PARAM_STR, 100);
+            $stmt->bindParam(5, $city, PDO::PARAM_STR, 50);
+            $stmt->bindParam(6, $zip, PDO::PARAM_STR, 6);
+            $stmt->bindParam(7, $pw, PDO::PARAM_STR, 100);
             $stmt->execute();
             $resp = true;
         }

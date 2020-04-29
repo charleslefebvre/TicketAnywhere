@@ -52,7 +52,7 @@
     width: 11vw;
     font-size: 1.25vw;
     line-height: 0vw;
-    transition: all .3s ease-out;
+    transition: border .3s ease-out;
 }
 #user-container #register:hover,#login:hover{
     border: 1px solid #FFF;

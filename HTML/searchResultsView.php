@@ -1,10 +1,13 @@
-<?php
-load_tabs();
-?>
-<div id="container">  
+<div id="filter-container">
+    <div id='tab-container'>
+        <?php load_tabs();?>
+    </div>
     <form method="get" action="./searchResults.php?">
     <input id="hidden-input" name="tab" type="hidden">
-    <div id="filter">
+    <div id="filterS">
+        Ye
+    </div>
+    <div id="filterB">
         <div id="header">
             <h6 id="title">Filter</h6>
             <button type="submit" class="btn btn-secondary">Apply</button>
@@ -22,6 +25,9 @@ load_tabs();
         </div>
     </div>
     </form>  
+</div>
+
+<div id="container">  
     <div id="list">
         <?php for($i = 0; $i< 5; ++$i):?>
         <div class="info-container">

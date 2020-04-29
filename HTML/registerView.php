@@ -24,7 +24,17 @@
         </div>
         <div class="form-group col-md-6">
             <label>Address</label>
-            <input name="address" class="form-control" placeholder="Enter email">
+            <input name="address" class="form-control" placeholder="Enter address">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>City</label>
+            <input name="city" class="form-control" placeholder="City">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Zip code</label>
+            <input name="zip" class="form-control" placeholder="Enter Zip code">
         </div>
     </div>
     <div class="form-row">
@@ -37,7 +47,7 @@
             <input name="cpw" type="password" class="form-control" placeholder="Enter confirmation">
         </div>
     </div>       
-    <button type="submit" class="btn submit">Register</button>
+    <button type="button" class="btn submit">Register</button>
 </form>
 
 

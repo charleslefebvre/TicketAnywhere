@@ -1,3 +1,6 @@
+body {
+    overflow: hidden;
+}
 .jumbotron{
     margin: 0;
     display: flex;
@@ -27,7 +30,6 @@
     align-items: center;
     flex-direction: column;
     height: 40vw;
-    width: 80vw;
     padding: 10em;
     margin-bottom: 6%;
     transition: all .5s ease-out;

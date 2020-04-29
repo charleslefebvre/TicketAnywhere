@@ -12,6 +12,15 @@ $(document).ready(function() {
                 required: true,
                 email: true
             },
+            address: {
+                required: true
+            },
+            city: {
+                required: true
+            },
+            zip: {
+                required: true
+            },
             pw: {
                 required: true,
                 minlength: 5
@@ -34,7 +43,10 @@ $(document).ready(function() {
             } 
         },
     });
-    $('.submit').click(() => {
-        $('#register-form').submit();
+    $('.submit').click(() =>{
+        if($('#register-form').valid()){
+            $('#register-form').submit();
+        }
+
     })
 });
