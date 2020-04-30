@@ -32,7 +32,8 @@
 	
 	create procedure getAllShow()
 	BEGIN
-		SELECT * FROM shows;
+		SELECT s.id,s.name,s.description,c.description category,s.starting_price,s.artist_name,s.imageURL FROM shows s
+    		inner join categories c on c.id=s.category_id;
 	END;|
 	create procedure getShowByArtistName(in p_artistName varchar(60))
 	BEGIN
