@@ -38,7 +38,7 @@
     </div>
     <a href="./" id="title"><h6>Ticket</h6><h6>Anywhere</h6></a>
     <div id="search-bar">
-        <form method="post" action="searchResults.php">
+        <form method="get" action="searchResults.php">
             <input name="search" class="form-control" autocomplete="off" placeholder="Search for artists, auditoriums, and shows">
         </form>
     </div>

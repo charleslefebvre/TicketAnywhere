@@ -5,8 +5,6 @@
 	drop procedure getShowByArtistName;
 	drop procedure getShowByName;
 	drop procedure getShowByCategory;
-	drop procedure getAllCategoriesName;
-	drop procedure addPurchases;
 	delimiter |
 	create procedure get_by_email
 	(
@@ -32,8 +30,7 @@
 	
 	create procedure getAllShow()
 	BEGIN
-		SELECT s.id,s.name,s.description,c.description category,s.starting_price,s.artist_name,s.imageURL FROM shows s
-    		inner join categories c on c.id=s.category_id;
+		SELECT * FROM shows;
 	END;|
 	create procedure getShowByArtistName(in p_artistName varchar(60))
 	BEGIN
@@ -50,11 +47,4 @@
 	create procedure getAllCategoriesName()
 	BEGIN
 		SELECT description FROM categories;
-	END;| 
-	create procedure addPurchases(in p_idClient INT)
-	BEGIN
-	DECLARE temps DATE;
-	SET temps = CURRENT_DATE;
-	INSERT INTO purchases(date, client_id) VALUES(temps,p_idClient);
-	COMMIT;
 	END;
