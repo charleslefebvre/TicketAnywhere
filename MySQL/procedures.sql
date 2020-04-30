@@ -5,6 +5,7 @@
 	drop procedure getShowByArtistName;
 	drop procedure getShowByName;
 	drop procedure getShowByCategory;
+	drop procedure addRepresentations;
 	delimiter |
 	create procedure get_by_email
 	(
@@ -47,4 +48,8 @@
 	create procedure getAllCategoriesName()
 	BEGIN
 		SELECT description FROM categories;
+	END;|
+	create procedure addRepresentations(in p_idShow INT, in p_date datetime, in p_idAuditorium INT)
+	BEGIN
+		INSERT INTO representations(id_show, date, id_auditorium) VALUES(p_idShow, p_date, p_idAuditorium);
 	END;
