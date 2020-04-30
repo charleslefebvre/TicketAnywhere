@@ -5,6 +5,8 @@
 	drop procedure getShowByArtistName;
 	drop procedure getShowByName;
 	drop procedure getShowByCategory;
+	drop procedure getAllCategoriesName;
+	drop procedure addPurchases;
 	delimiter |
 	create procedure get_by_email
 	(
@@ -47,4 +49,11 @@
 	create procedure getAllCategoriesName()
 	BEGIN
 		SELECT description FROM categories;
+	END;| 
+	create procedure addPurchases(in p_idClient INT)
+	BEGIN
+	DECLARE temps DATE;
+	SELECT temps = CURRENT_DATE;
+	INSERT INTO purchases VALUES(temps,p_idClient);
+	COMMIT;
 	END;
