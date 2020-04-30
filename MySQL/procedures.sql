@@ -54,7 +54,7 @@
 	create procedure addPurchases(in p_idClient INT)
 	BEGIN
 	DECLARE temps DATE;
-	SELECT temps = CURRENT_DATE;
-	INSERT INTO purchases VALUES(temps,p_idClient);
+	SET temps = CURRENT_DATE;
+	INSERT INTO purchases(date, client_id) VALUES(temps,p_idClient);
 	COMMIT;
 	END;
