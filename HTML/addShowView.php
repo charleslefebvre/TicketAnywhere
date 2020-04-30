@@ -16,8 +16,14 @@
     </div>
     <div class="form-row">
         <div class="form-group">
+            <label for="exampleFormControlTextarea1">Description</label>
+            <textarea class="form-control" rows="4" cols="75"></textarea>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
             <label>Category</label>
-            <select name="category" class="custom-select long">
+            <select name="category" class="custom-select">
                 <option value="humor">Humor</option>
                 <option value="music">Music</option>
                 <option value="kid">Kid</option>
@@ -28,35 +34,9 @@
     </div>
     <div class="form-row">
         <div class="form-group">
-            <label>Section A</label>
-            <input name="priceA" class="form-control" placeholder="Enter price">
+            <label>Starting price</label>
+            <input name="price" class="form-control" placeholder="Enter starting price">
         </div>
-        <div class="form-group">
-        <label>Section B</label>
-            <input name="priceB" class="form-control" placeholder="Enter price">
-        </div>
-        <div class="form-group">
-            <label>Section C</label>
-            <input name="priceC" class="form-control" placeholder="Enter price">
-        </div>
-        <div class="form-group">
-            <label>Section D</label>
-            <input name="priceD" class="form-control" placeholder="Enter price">
-        </div>
-        <div class="form-group">
-        <label>Section E</label>
-            <input name="priceE" class="form-control" placeholder="Enter price">
-        </div>
-        <div class="form-group">
-            <label>Section F</label>
-            <input name="priceF" class="form-control" placeholder="Enter price">
-        </div>
-    </div>
-    <div id="last-row" class="form-row">
-    </div>
-    <div id="btn-add-section">
-        <button id="add-section" type="button"class="btn btn-primary">Add section</button>
-        <button style="display: none" id="remove-section" type="button"class="btn btn-danger">Remove section</button>
     </div>
     <input style="display: none" type="file" name="showImage" id="file-reader" onchange="readURL(this);">
     <button type="submit" class="btn submit">Add</button>

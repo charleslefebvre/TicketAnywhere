@@ -33,10 +33,7 @@ body {
     flex-direction: row;
     position: relative;
 }
-#filterS{
-    display: none;
-}
-#filterB {
+#filter {
     height: 30vw;
     width: 20vw;
     display: flex;
@@ -48,7 +45,7 @@ body {
     border: 1px solid rgb(0, 0, 0, 0.05);
     border-radius: 1em;
 }
-#filterB #header {
+#filter #header {
     display: flex;
     width: 15vw;
     height: 3.5vw;
@@ -56,33 +53,30 @@ body {
     align-content: flex-start;
     border-bottom: 1px solid rgb(0, 0, 0, 0.05);
 }
-#filterB #header button {
+#filter #header button {
     height: 2vw;
     width: 6vw;
     font-size: 1vw;
     line-height: 0vw;
 }
-#filterB #title,.info-container .title {
+#filter #title,.info-container .title {
     font-size: 1.75vw;
     padding-bottom: 1em;
     color: #3D5A80;
     width: 15vw;
 }
-#filterB .tab {
+#filter .tab {
     padding-bottom: 1vw;
     padding-top: 1vw;
     border-bottom: 1px solid rgb(0, 0, 0, 0.05);
     width: 15vw;
 }
-#filterB .tab-title{
+#filter .tab-title{
     font-size: 1.25vw;
     color: dodgerblue;
     padding-bottom: 0.5vw;
 }
-#filterB .tab select {
-    font-size: 1vw;
-}
-#filterB label {
+#filter label {
     font-size: 1vw;
 }
 #list {
@@ -132,18 +126,30 @@ body {
     #container{
         flex-direction: column;
     }
-    #filterB {
-        display: none;
+    #filter-container {
+        width: 85vw;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-direction: row;
+    }
+    #filter {
+        flex-direction: row;
+        justify-content: space-between;
+        height: 15vw;
+        width: 60vw;
+        padding: 1.5vw;
+    }
+    #filter .tab {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: column wrap;
+        padding: 0;
+        height: 15vw;
+
     }
     #list{
         width: 85vw;
         margin-left: 0;
-    }
-    #filterS{
-        display: flex;
-    }
-    #filter-container {
-        flex-direction: row;
     }
     .jumbotron {
         flex-direction: column;

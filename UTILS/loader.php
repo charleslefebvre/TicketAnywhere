@@ -37,14 +37,20 @@ function filter_query(){
     }
     return $string;
 }
-function load_category_options($optionList){
-    $category_selected = (!isset($_GET['category'])?'any':$_GET['category']);
-    foreach($optionList as $option){
-        echo" <option ";
-        if(strtolower($option) == $category_selected){
-            echo "selected ";
+function load_category_checkbox($checkboxList){
+    
+    foreach($checkboxList as $checkbox){
+
+        echo "<div class='form-check'>
+                <input class='form-check-input' type='checkbox' name='".strtolower($checkbox)."'value='".strtolower($checkbox)."'";
+        if(isset($_GET[strtolower($checkbox)])){
+            echo "checked";
         } 
-        echo "value='".strtolower($option)."'>$option</option>";
+        
+        echo"><label class='form-check-label' for=".strtolower($checkbox)."'>
+            $checkbox
+        </label>
+        </div>";
     }
 }
 ?>

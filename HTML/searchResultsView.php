@@ -4,10 +4,7 @@
     </div>
     <form method="get" action="./searchResults.php?">
     <input id="hidden-input" name="tab" type="hidden">
-    <div id="filterS">
-        Ye
-    </div>
-    <div id="filterB">
+    <div id="filter">
         <div id="header">
             <h6 id="title">Filter</h6>
             <button type="submit" class="btn btn-secondary">Apply</button>
@@ -19,11 +16,9 @@
         </div>
         <div class="tab">
             <h6 class="tab-title">Category</h6>
-            <select name="category" class="custom-select">
-                <?php load_category_options(array('Any','Humor','Music','Kid','Illusion','Dance')); ?>
-            </select>
+            <?php load_category_checkbox(array('Any','Humor','Music','Kid','Illusion','Dance')); ?>
         </div>
-    </div>
+    </div> 
     </form>  
 </div>
 
