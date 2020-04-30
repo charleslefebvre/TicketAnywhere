@@ -21,10 +21,11 @@ function load_tabs(){
         if($tabSelected == 'categories'){echo"id='selected-tab'";}echo"href='?tab=categories".$query."'>Categories</a></div>"; 
     }
     else {
+        $search = $_GET['search'];
         echo"
-            <a id='selected-tab' href='?tab=artists'>Artists</a>
-            <a href='?tab=auditoriums'>Auditoriums</a>
-            <a href='?tab=categories'>Categories</a>
+            <a id='selected-tab' href='?tab=artists&search=$search'>Artists</a>
+            <a href='?tab=auditoriums&search=$search'>Auditoriums</a>
+            <a href='?tab=categories&search=$search'>Categories</a>
         ";
     }
 } 

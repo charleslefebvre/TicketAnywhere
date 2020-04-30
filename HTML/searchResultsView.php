@@ -1,3 +1,24 @@
+<?php 
+    include __DIR__ . "/../CLASSES/SHOW/show.php";
+
+    function displayShow($tab){
+        $Show = new Show();
+        $search = $_GET['search'];
+        if($search == ""){
+            $showList = $Show->getAll();
+        } else {
+            if($tab == "artists"){
+                $showList = $Show->getByArtist($_GET['search']);
+            } else if($tab == "auditoriums"){
+                $showList = $Show->getByAuditorium($_GET['search']);
+            } else if($tab == "categories"){
+                $showList = $Show->getByCategory($_GET['search']);
+            }
+        }
+        Show::load_show($showList);
+    }
+?>
+
 <div id="filter-container">
     <div id='tab-container'>
         <?php load_tabs();?>
@@ -24,21 +45,7 @@
 
 <div id="container">  
     <div id="list">
-        <?php for($i = 0; $i< 5; ++$i):?>
-        <div class="info-container">
-            <img src="IMG/show.jpg" height="50" alt="show">
-            <div class="infos">
-                <h6 class="title">Lover Tour 2020</h6>
-                <h6 class="artist">Noah Gundersen</h6>
-                <h6 class="category">Categorie: Music</h6>
-                <h6 class="price">75$ - 150$</h6>
-                <h6 class="ticket">120 tickets left</h6>
-            </div>
-            <div class="button-container">
-                <button class="btn btn-primary">Buy</button>    
-            </div>
-        </div>
-        <?php endfor ?>
+        <?php (isset($_GET['tab']))? displayShow($_GET['tab']):displayShow("artists") ?>
     </div>
 </div>
 
