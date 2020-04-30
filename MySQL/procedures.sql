@@ -43,4 +43,8 @@
 	create procedure getShowByName(in p_category INT)
 	BEGIN
 		SELECT * FROM shows WHERE category_id = p_category;
+	END;|
+	create procedure getAllCategoriesName()
+	BEGIN
+		SELECT description FROM categories;
 	END;
