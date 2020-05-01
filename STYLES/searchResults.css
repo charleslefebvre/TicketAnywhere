@@ -121,7 +121,12 @@ body {
     width: 10vw;
     font-size: 1vw;
 }
-
+#list .btn-dark {
+    width: 20vw;
+    align-self: center;
+    font-size: 1vw;
+    margin-bottom: 3vw;
+}
 @media screen and (max-width: 1024px){
     #container{
         flex-direction: column;

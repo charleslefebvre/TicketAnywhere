@@ -19,11 +19,12 @@ class ShowTDG extends DBAO{
     }
 
     public function get_all(){
-
+        $count = 6;
         try{
             $conn = $this->connect();
-            $query = 'call getAllShow()';
+            $query = 'call getAllShow(?)';
             $stmt = $conn->prepare($query);
+            $stmt->bindParam(1, $count, PDO::PARAM_INT);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $result = $stmt->fetchAll();
@@ -36,11 +37,13 @@ class ShowTDG extends DBAO{
     }
 
     public function get_by_artist($artistName){
+        $count = 6;
         try{
             $conn = $this->connect();
-            $query = 'call getShowByArtistName(?)';
+            $query = 'call getShowByArtistName(?,?)';
             $stmt = $conn->prepare($query);
             $stmt->bindParam(1, $artistName, PDO::PARAM_STR, 60);
+            $stmt->bindParam(2, $count, PDO::PARAM_INT);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $result = $stmt->fetchAll();
@@ -53,11 +56,13 @@ class ShowTDG extends DBAO{
     }
 
     public function get_by_auditorium($auditorium){
+        $count = 6;
         try{
             $conn = $this->connect();
-            $query = 'call getShowByAuditorium(?)';
+            $query = 'call getShowByAuditorium(?,?)';
             $stmt = $conn->prepare($query);
             $stmt->bindParam(1, $auditorium, PDO::PARAM_STR, 60);
+            $stmt->bindParam(2, $count, PDO::PARAM_INT);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $result = $stmt->fetchAll();
@@ -70,11 +75,13 @@ class ShowTDG extends DBAO{
     }
 
     public function get_by_category($category){
+        $count = 6;
         try{
             $conn = $this->connect();
-            $query = 'call getShowByCategory(?)';
+            $query = 'call getShowByCategory(?,?)';
             $stmt = $conn->prepare($query);
             $stmt->bindParam(1, $category, PDO::PARAM_STR, 60);
+            $stmt->bindParam(2, $count, PDO::PARAM_INT);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $result = $stmt->fetchAll();

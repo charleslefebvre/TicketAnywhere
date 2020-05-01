@@ -1,21 +1,24 @@
 <?php 
     include __DIR__ . "/../CLASSES/SHOW/show.php";
 
+    if(isset($_GET['tab'])){
+        $_SESSION['tab'] = $_GET['tab'];
+    }
     function displayShow($tab){
-        $Show = new Show();
+        $show = new Show();
         $search = $_GET['search'];
         if($search == ""){
-            $showList = $Show->getAll();
+            $showList = $show->getAll();
         } else {
             if($tab == "artists"){
-                $showList = $Show->getByArtist($_GET['search']);
+                $showList = $show->getByArtist($search);
             } else if($tab == "auditoriums"){
-                $showList = $Show->getByAuditorium($_GET['search']);
+                $showList = $show->getByAuditorium($search);
             } else if($tab == "categories"){
-                $showList = $Show->getByCategory($_GET['search']);
+                $showList = $show->getByCategory($search);
             }
         }
-        Show::load_show($showList);
+        $show->load_show($showList);
     }
 ?>
 
@@ -24,7 +27,8 @@
         <?php load_tabs();?>
     </div>
     <form method="get" action="./searchResults.php?">
-    <input id="hidden-input" name="tab" type="hidden">
+    <input id="hidden-input-tab" name="tab" type="hidden">
+    <input id="hidden-input-search" value="<?php echo $_GET['search'] ?>" name="search" type="hidden">
     <div id="filter">
         <div id="header">
             <h6 id="title">Filter</h6>

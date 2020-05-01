@@ -25,6 +25,6 @@
             echo "<div class='jumbotron'>";
             load_modules($content); 
             echo "</div>";
-    ?>        
+    ?>       
     </body>
 </html>

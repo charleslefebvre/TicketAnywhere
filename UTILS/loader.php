@@ -12,9 +12,9 @@ function load_styles($styleList){
     }
 }
 function load_tabs(){
-    if(isset($_GET['tab'])){         
+    if(isset($_SESSION['tab'])){         
         $query = filter_query();
-        $tabSelected = $_GET['tab'];
+        $tabSelected = $_SESSION['tab'];
         echo "<div id='tab-container'><a ";
         if($tabSelected == 'artists'){echo"id='selected-tab'";}echo"href='?tab=artists$query'>Artists</a><a ";
         if($tabSelected == 'auditoriums'){echo"id='selected-tab'";}echo"href='?tab=auditoriums$query'>Auditoriums</a><a ";

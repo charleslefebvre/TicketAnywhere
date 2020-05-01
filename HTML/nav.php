@@ -39,7 +39,7 @@
     <a href="./" id="title"><h6>Ticket</h6><h6>Anywhere</h6></a>
     <div id="search-bar">
         <form method="get" action="searchResults.php">
-            <input name="search" class="form-control" autocomplete="off" placeholder="Search for artists, auditoriums, and shows">
+            <input name="search" class="form-control" autocomplete="off" placeholder="Search for artists, auditoriums, and categories">
         </form>
     </div>
     <div id="user-container">

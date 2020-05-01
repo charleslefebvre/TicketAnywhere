@@ -42,19 +42,19 @@ class Show
         return $list;
     }
 
-    public static function load_show($showList){
+    public function load_show($showList){
         if(count($showList) == 0){
             echo "<h3>No search result</h3>";
             return;
         }
         foreach($showList as $show){
             echo "<div class='info-container'>
-                <img src='".strtolower($show['imageURL'])."' height='50' alt='show'>
+                <img src='".$show['imageURL']."' height='50' alt='show'>
                 <div class='infos'>
-                    <h6 class='title'>".strtolower($show['name'])."</h6>
-                    <h6 class='artist'>".strtolower($show['artist_name'])."</h6>
-                    <h6 class='category'>Categorie: ".strtolower($show['category'])."</h6>
-                    <h6 class='price'>".strtolower($show['starting_price']). "$</h6>
+                    <h6 class='title'>".$show['name']."</h6>
+                    <h6 class='artist'>".$show['artist_name']."</h6>
+                    <h6 class='category'>Category: ".$show['category']."</h6>
+                    <h6 class='price'>".$show['starting_price']. "$</h6>
                     <h6 class='ticket'>X tickets left</h6>
                     </div>
                     <div class='button-container'>
@@ -62,5 +62,6 @@ class Show
                     </div>
                 </div>";
         }
+        echo "<button class='btn btn-dark'>More</button>";
     }
 }
