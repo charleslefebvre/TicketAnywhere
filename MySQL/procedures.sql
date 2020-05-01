@@ -6,6 +6,8 @@
 	drop procedure getShowByName;
 	drop procedure getShowByCategory;
 	drop procedure addRepresentations;
+	drop procedure addPurchases;
+	drop procedure addRealPurchases;
 	delimiter |
 	create procedure get_by_email
 	(
@@ -52,4 +54,15 @@
 	create procedure addRepresentations(in p_idShow INT, in p_date datetime, in p_idAuditorium INT)
 	BEGIN
 		INSERT INTO representations(id_show, date, id_auditorium) VALUES(p_idShow, p_date, p_idAuditorium);
+	END;|
+	create procedure addRealPurchases(in p_ticketId INT, in p_purchaseId INT, in p_quantity INT)
+	BEGIN
+		INSERT INTO real_purchases(ticket_id, purchase_id, quantity) VALUES(p_ticketId, p_purchaseId, p_quantity);
+	END;|
+	create procedure addPurchases(in p_idClient INT)
+	BEGIN
+		DECLARE temps DATE;
+		SET temps = CURRENT_DATE;
+		INSERT INTO purchases(date, client_id) VALUES(temps,p_idClient);
+		COMMIT;
 	END;
