@@ -66,7 +66,7 @@ auditoriums(id)
 create table tickets
 (
 id int auto_increment primary key,
-starting_price decimal,
+starting_price decimal(4,2),
 representation_id int,
 show_id int,
 section_id int,
