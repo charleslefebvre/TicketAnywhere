@@ -36,7 +36,7 @@ create table sections
 id int auto_increment primary key,
 id_auditorium int,
 color varchar(45),
-mp_price decimal,
+mp_price decimal(4,2),
 constraint fk_auditorium_id_sections foreign key (id_auditorium) references
 auditoriums(id)
 );
@@ -46,7 +46,7 @@ id int auto_increment primary key,
 name varchar(45),
 description varchar(200),
 category_id int,
-starting_price decimal,
+starting_price decimal(4,2),
 artist_name varchar(45),
 imageURL varchar(250),
 constraint fk_category_id_shows foreign key (category_id) references
