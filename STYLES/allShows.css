@@ -1,0 +1,59 @@
+.jumbotron {
+    display: flex;
+    flex-direction: row;
+}
+
+#container{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+#list {
+    display: flex;
+    flex-direction: column;
+    width: 85vw;
+    justify-content: center;
+    margin-left: 2em;
+}
+.info-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #FFF;
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 1px solid rgb(0, 0, 0, 0.05);
+    border-radius: 1em;
+}
+.info-container img {
+    height: 12vw;
+    width: 18vw;
+    margin-right: 3vw;
+}
+.info-container .infos {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10vw;
+    width: 15vw;
+}
+.info-container .infos .artist, .price, .category, .ticket {
+    font-size: 1vw;
+}
+.info-container .button-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 25vw;
+}
+.info-container .button-container button {
+    height: auto;
+    width: 10vw;
+    font-size: 1vw;
+}
+#list .btn-dark {
+    width: 20vw;
+    align-self: center;
+    font-size: 1vw;
+    margin-bottom: 3vw;
+}

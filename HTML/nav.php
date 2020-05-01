@@ -42,6 +42,9 @@
             <input name="search" class="form-control" autocomplete="off" placeholder="Search for artists, auditoriums, and categories">
         </form>
     </div>
+    <div id="all-shows">
+        <a href="allShows.php">See all shows</a>
+    </div>
     <div id="user-container">
       <?php
         foreach($userArray as $element){
