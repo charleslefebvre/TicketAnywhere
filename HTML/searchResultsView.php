@@ -1,25 +1,12 @@
 <?php 
-    include __DIR__ . "/../CLASSES/SHOW/show.php";
+    include_once __DIR__ . "/../CLASSES/SHOW/show.php";
 
     if(isset($_GET['tab'])){
         $_SESSION['tab'] = $_GET['tab'];
     }
-    function displayShow($tab){
-        $show = new Show();
-        $search = $_GET['search'];
-        if($search == ""){
-            $showList = $show->getAll();
-        } else {
-            if($tab == "artists"){
-                $showList = $show->getByArtist($search);
-            } else if($tab == "auditoriums"){
-                $showList = $show->getByAuditorium($search);
-            } else if($tab == "categories"){
-                $showList = $show->getByCategory($search);
-            }
-        }
-        $show->load_show($showList);
-    }
+    $show = new Show();
+    $search = $_GET['search'];
+    $showCount = 6;
 ?>
 
 <div id="filter-container">
@@ -41,7 +28,7 @@
         </div>
         <div class="tab">
             <h6 class="tab-title">Category</h6>
-            <?php load_category_checkbox(array('Any','Humor','Music','Kid','Illusion','Dance')); ?>
+            <?php load_category_checkbox(array('Humor','Music','Kid','Illusion','Dance')); ?>
         </div>
     </div> 
     </form>  
@@ -49,7 +36,10 @@
 
 <div id="container">  
     <div id="list">
-        <?php (isset($_GET['tab']))? displayShow($_GET['tab']):displayShow("artists") ?>
+        <?php (isset($_GET['tab']))? $show->displayShow($_GET['tab'],$search,$showCount):$show->displayShow("artists",$search,$showCount) ?>
+    </div>
+    <div id="moreShowsContainer">
+        <button id='moreShows' class='btn btn-dark'>More</button>
     </div>
 </div>
 

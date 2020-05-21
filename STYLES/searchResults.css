@@ -76,6 +76,11 @@
 #filter label {
     font-size: 1vw;
 }
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 #list {
     display: flex;
     flex-direction: column;
@@ -119,11 +124,16 @@
     width: 10vw;
     font-size: 1vw;
 }
-#list .btn-dark {
+#moreShowsContainer{
+    margin-bottom: 3vw;
+}
+#moreShowsContainer .btn-dark {
     width: 20vw;
     align-self: center;
     font-size: 1vw;
-    margin-bottom: 3vw;
+}
+#moreShowsContainer p {
+    font-size: 1.25vw;
 }
 @media screen and (max-width: 1024px){
     #container{

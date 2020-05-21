@@ -14,32 +14,53 @@ class Show
 
     public function __construct(){}
 
-    public function getAll(){
+    public function getAll($count){
         $TDG = ShowTDG::getInstance();
-        $list = $TDG->get_all();
+        $list = $TDG->get_all($count);
         $TDG = null;
         return $list;
     }
 
-    public function getByArtist($artistName){
+    public function getByArtist($artistName,$count){
         $TDG = ShowTDG::getInstance();
-        $list = $TDG->get_by_artist($artistName);
+        $list = $TDG->get_by_artist($artistName,$count);
         $TDG = null;
         return $list;
     }
 
-    public function getByAuditorium($auditorium){
+    public function getByAuditorium($auditorium,$count){
         $TDG = ShowTDG::getInstance();
-        $list = $TDG->get_by_auditorium($auditorium);
+        $list = $TDG->get_by_auditorium($auditorium,$count);
         $TDG = null;
         return $list;
     }
 
-    public function getByCategory($category){
+    public function getByCategory($category,$count){
         $TDG = ShowTDG::getInstance();
-        $list = $TDG->get_by_category($category);
+        $list = $TDG->get_by_category($category,$count);
         $TDG = null;
         return $list;
+    }
+
+    public function displayShow($tab, $search,$count){
+        if($search == ""){
+            $showList = $this->getAll($count);
+        } 
+        else {
+            if($tab == "artists"){
+                $showList = $this->getByArtist($search,$count);
+            } else if($tab == "auditoriums"){
+                $showList = $this->getByAuditorium($search,$count);
+            } else if($tab == "categories"){
+                $showList = $this->getByCategory($search,$count);
+            }
+        }
+        if(count($showList) < $count)
+            echo "<script>
+                    $('#moreShowsContainer').empty();
+                    $('#moreShowsContainer').append('<p>No more show to display</p>')
+                </script>";    
+        $this->load_show($showList);
     }
 
     public function load_show($showList){
@@ -62,6 +83,5 @@ class Show
                     </div>
                 </div>";
         }
-        echo "<button class='btn btn-dark'>More</button>";
     }
 }
