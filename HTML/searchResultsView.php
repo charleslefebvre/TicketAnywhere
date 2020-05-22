@@ -1,5 +1,6 @@
 <?php 
     include_once __DIR__ . "/../CLASSES/SHOW/show.php";
+    include_once __DIR__ . "/../CLASSES/CATEGORY/category.php";
 
     if(isset($_GET['tab'])){
         $_SESSION['tab'] = $_GET['tab'];
@@ -7,6 +8,10 @@
     $show = new Show();
     $search = $_GET['search'];
     $showCount = 6;
+
+    $category = new Category;
+    $categories = $category->getAll();
+
 ?>
 
 <div id="filter-container">
@@ -28,7 +33,7 @@
         </div>
         <div class="tab">
             <h6 class="tab-title">Category</h6>
-            <?php load_category_checkbox(array('Humor','Music','Kid','Illusion','Dance')); ?>
+            <?php load_category_checkbox($categories,'description'); ?>
         </div>
     </div> 
     </form>  

@@ -8,7 +8,7 @@ body {
     align-items: flex;
     flex-direction: column;
     background-image: url("../IMG/header.jpg");
-    background-size: 180vh;
+    background-size: cover;
     border-radius: 0 !important;
     height: 100vh;
 }

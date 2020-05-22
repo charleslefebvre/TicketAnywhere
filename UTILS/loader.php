@@ -38,20 +38,25 @@ function filter_query(){
     }
     return $string;
 }
-function load_category_checkbox($checkboxList){
+function load_category_checkbox($checkboxList,$value){
     
     foreach($checkboxList as $checkbox){
-
+        $name = strtolower($checkbox[$value]);
         echo "<div class='form-check'>
-                <input class='form-check-input' type='checkbox' name='".strtolower($checkbox)."'value='".strtolower($checkbox)."'";
-        if(isset($_GET[strtolower($checkbox)])){
+                <input class='form-check-input' type='checkbox' name='$name'value='".$checkbox['id']."'";
+        if(isset($_GET[$name])){
             echo "checked";
         } 
         
-        echo"><label class='form-check-label' for=".strtolower($checkbox)."'>
-            $checkbox
+        echo"><label class='form-check-label' for='$name'>".
+            $checkbox[$value]."
         </label>
         </div>";
+    }
+}
+function load_select_options($list,$value){
+    foreach($list as $item){
+        echo "<option value=".strtolower($item['id']).">".$item[$value]."</option>";
     }
 }
 ?>

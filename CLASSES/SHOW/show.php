@@ -41,7 +41,6 @@ class Show
         $TDG = null;
         return $list;
     }
-
     public function displayShow($tab, $search,$count){
         if($search == ""){
             $showList = $this->getAll($count);
@@ -65,7 +64,12 @@ class Show
 
     public function load_show($showList){
         if(count($showList) == 0){
-            echo "<h3>No search result</h3>";
+            echo "<h3>No search result</h3>
+            <script>
+            $(document).ready(() => {
+                $('#moreShowsContainer').empty();
+            })
+            </script>";
             return;
         }
         foreach($showList as $show){
@@ -75,11 +79,14 @@ class Show
                     <h6 class='title'>".$show['name']."</h6>
                     <h6 class='artist'>".$show['artist_name']."</h6>
                     <h6 class='category'>Category: ".$show['category']."</h6>
-                    <h6 class='price'>".$show['starting_price']. "$</h6>
+                    <h6 class='price'>Starting price: ".$show['starting_price']. "$</h6>
                     <h6 class='ticket'>X tickets left</h6>
                     </div>
                     <div class='button-container'>
-                    <button class='btn btn-primary'>Buy</button>    
+                        <form method='get' action='./representations.php'>
+                            <input type='hidden' name='showId' value='".$show['id']."'/>
+                            <button type='submit' class='btn btn-primary'>Buy</button>   
+                        </form>
                     </div>
                 </div>";
         }

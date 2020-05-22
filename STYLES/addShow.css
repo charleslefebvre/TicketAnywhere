@@ -1,4 +1,6 @@
-
+.jumbotron{
+    height: 130vh;
+}
 .content {
     display: flex;
     justify-content: flex-start;
@@ -14,9 +16,6 @@
     width: 16.5vw;
     margin-right: 0.5vw;
 }
-.content form #btn-add-section button {
-    font-size: 1.5vw;
-}
 #image-container{
     height: 10vw;
     width: 15vw;
@@ -26,4 +25,12 @@
 }
 #image-container img {
     height: 100%;
+}
+.content #representations h2 {
+    border-bottom: 1px solid rgba(0, 0,0,.25);
+    padding-bottom: 1em;
+}
+.content #representations img {
+    height: 3vw;
+    margin-top: 2.5vw;
 }

@@ -18,8 +18,7 @@ class ShowTDG extends DBAO{
         return self::$_instance;
     }
 
-    public function get_all(){
-        $count = 6;
+    public function get_all($count){
         try{
             $conn = $this->connect();
             $query = 'call getAllShow(?)';
@@ -36,8 +35,7 @@ class ShowTDG extends DBAO{
         return $result;
     }
 
-    public function get_by_artist($artistName){
-        $count = 6;
+    public function get_by_artist($artistName,$count){
         try{
             $conn = $this->connect();
             $query = 'call getShowByArtistName(?,?)';
@@ -55,8 +53,7 @@ class ShowTDG extends DBAO{
         return $result;
     }
 
-    public function get_by_auditorium($auditorium){
-        $count = 6;
+    public function get_by_auditorium($auditorium,$count){
         try{
             $conn = $this->connect();
             $query = 'call getShowByAuditorium(?,?)';
@@ -74,8 +71,7 @@ class ShowTDG extends DBAO{
         return $result;
     }
 
-    public function get_by_category($category){
-        $count = 6;
+    public function get_by_category($category,$count){
         try{
             $conn = $this->connect();
             $query = 'call getShowByCategory(?,?)';

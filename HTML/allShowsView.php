@@ -2,12 +2,11 @@
     include __DIR__ . "/../CLASSES/SHOW/show.php";   
 
 ?>
-
 <div id="container">  
     <div id="list">
         <?php
             $show = new Show();
-            $show->load_show($show->getAll());
+            $show->load_show($show->getAll(20));
         ?>
     </div>
 </div>
