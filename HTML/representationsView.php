@@ -15,7 +15,7 @@
                 <h6 class='price'>Price range: X to X</h6>
             </div>
             <div class='button-container'>
-                <button type='submit' class='btn btn-primary'>Buy</button>   
+                <button type='submit' class='btn btn-primary'>Add to cart</button>   
             </div>
         </div>
         <?php endfor;?>

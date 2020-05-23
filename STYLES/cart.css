@@ -1,0 +1,27 @@
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #FFF;
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 1px solid rgb(0, 0, 0, 0.05);
+    border-radius: 1em;
+    width: 60vw;
+}
+.item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid rgb(0, 0, 0, 0.05);
+    padding: 5em;
+}
+.item * {
+    font-size: 20px;
+}
+.show-info{
+    display: flex;
+    flex-direction: column;
+
+}
