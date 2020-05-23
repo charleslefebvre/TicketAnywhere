@@ -17,5 +17,12 @@ class Auditorium
         $TDG = null;
         return $list;
     }
+
+    public function getSections($id){
+        $TDG = AuditoriumTDG::getInstance();
+        $sections = $TDG->get_sections($id);
+        $TDG = null;
+        return $sections;
+    }
 }
 ?>
