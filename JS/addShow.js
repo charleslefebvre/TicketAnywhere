@@ -3,31 +3,36 @@ $(document).ready(function(){
         $("#file-reader").click(); //showIMG
     });
 
-    $("#datepicker").datetimepicker(); //date
+    $("#datepicker").datetimepicker();//date
 
     let auditoriums = $("#auditoriums").children();
     let options = "";
     for(let item of auditoriums){
         options+= `<option value="${item.value}">${item.textContent}</option>`;
     }
+    let datepicker = $("#datepicker").prop('outerHTML');
+    let representation = `
+    <div class='form-row'>
+        <div class='form-group'>
+            <label>Date</label>
+            ${datepicker}
+        </div>
+        <div class='form-group'>
+            <label>Auditorium</label>
+            <select name='auditoriumId' class='custom-select'>
+                ${options}
+            </select>
+        </div>
+        <img id="minusIMG" onclick="removeRepresentaion(this)" src="IMG/minus.png"/>
+    </div>`
     let representationContainer = $("#representations");
     $("#plusIMG").click(() => {
-        representationContainer.append(`
-            <div class='form-row'>
-                <div class='form-group'>
-                    <label>Date</label>
-                    <input id='datepicker' name='date' readonly class='form-control long'>
-                </div>
-                <div class='form-group'>
-                    <label>Auditorium</label>
-                    <select name='auditoriumId' class='custom-select'>
-                        ${options}
-                    </select>
-                </div>
-                <img id="minusIMG" onclick="removeRepresentaion(this)" src="IMG/minus.png"/>
-            </div>`
-        );
+        representationContainer.append(representation);   
     })
+    $(document).on('click', '#datepicker', function() {
+        $(this).datetimepicker();
+    });
+
 });
 
 function readURL(input) { //showIMG
