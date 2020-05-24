@@ -61,6 +61,7 @@ function load_select_options($list,$value){
 }
 
 function load_cart_items($array, $Show, $Representation, $Auditorium){
+    $counter = 1;
     foreach($array as $item){
         $currentShow = $Show->getByID($item['showId']);
         $currentRepresentation = $Representation->getByID($item['representationId']);
@@ -75,11 +76,12 @@ function load_cart_items($array, $Show, $Representation, $Auditorium){
                 <p>Section: ".$currentSection['color']."</p>
             </div>
             <img id='plusIMG' src='IMG/plus.png' height='50'/>
-            <p>$numberOfTickets</p>
+            <p id='$counter'>$numberOfTickets</p>
             <img id='minusIMG' src='IMG/minus.png' height='50'/>
             <p>Total price $</p>
         </div>
         ";
+        $counter++;
     }
 }
 ?>

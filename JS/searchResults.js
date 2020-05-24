@@ -5,7 +5,6 @@ $(document).ready(function() {
     let showCount = 6;
     $("#moreShows").click(function(){
         showCount = showCount + 6;
-        console.log(showCount);
         $("#list").load("LOGIC/loadShows.logic.php" , {
             showNewCount: showCount,
             tab: selectedtab.value,
