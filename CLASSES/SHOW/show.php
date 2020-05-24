@@ -21,6 +21,13 @@ class Show
         return $list;
     }
 
+    public function getByID($id){
+        $TDG = ShowTDG::getInstance();
+        $show = $TDG->get_by_ID($id);
+        $TDG = null;
+        return $show;
+    }
+
     public function getByArtist($artistName,$count){
         $TDG = ShowTDG::getInstance();
         $list = $TDG->get_by_artist($artistName,$count);

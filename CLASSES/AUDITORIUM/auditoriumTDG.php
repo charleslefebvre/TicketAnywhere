@@ -32,5 +32,22 @@ class AuditoriumTDG extends DBAO{
         $conn = null;
         return $result;
     }
+
+    public function get_sections($id){
+        try{
+            $conn = $this->connect();
+            $query = 'call getSectionsByAuditoriumID(?)';
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
+        }
+        catch (PDOException $e){
+            echo "Error: " . $e->getMessage();
+        }
+        $conn = null;
+        return $result;
+    }
 }
 ?>

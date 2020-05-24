@@ -1,6 +1,5 @@
 <?php 
     include __DIR__ . "/../CLASSES/SHOW/show.php";   
-
 ?>
 <div id="container">  
     <div id="list">
