@@ -6,7 +6,7 @@
         foreach($userButtons as $button){
             array_push($userArray,"<button class='btn' id='".strtolower($button)."'onclick='window.location.href=`".strtolower($button).".php`'>$button</button>");
         }
-        array_push($dropDownItems,'Login','Register');
+        //array_push($dropDownItems,'Login','Register');
     }
     else{
         array_push($userArray,"<p>".$_SESSION['userName']."</p>",
@@ -18,9 +18,10 @@
             <div class='dropdown-menu dropdown-menu-right' aria-labelledby='dropdownMenuButton'>
                 <a class='dropdown-item' href='cart.php'>My cart</a>
                 <a class='dropdown-item' href='settings.php'>Settings</a>
+                <a class='dropdown-item' href='logout.php'>Logout</a>
             </div>
         </div>");
-        array_push($dropDownItems,'Logout');
+        //array_push($dropDownItems,'Logout');
     }
 ?>
 <div id="navbar">

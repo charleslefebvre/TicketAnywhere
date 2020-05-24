@@ -18,6 +18,13 @@ class Representation
         return $representation;
     }
 
+    public function getByID($id){
+        $TDG = RepresentationTDG::getInstance();
+        $representation = $TDG->get_by_ID($id);
+        $TDG = null;
+        return $representation;
+    }
+
     public function display($representationList, $auditorium, $show){
         if(!empty($representationList)){
             foreach($representationList as $representation){
