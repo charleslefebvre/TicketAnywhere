@@ -1,27 +1,12 @@
+<?php 
+    include_once __DIR__ . "/../CLASSES/REPRESENTATION/representation.php";
+    include_once __DIR__ . "/../CLASSES/SHOW/show.php";
+    include_once __DIR__ . "/../CLASSES/AUDITORIUM/auditorium.php";
+?>
+<div class="container">
+    <?php var_dump($_SESSION) ?>
+</div>
 <p id="title">My cart</p>
 <div id="container">
-    <div class="item">
-        <p>Name show</p>
-        <div class="show-info">
-            <p>Image show</p>
-            <p>Auditorium:</p>
-            <p>Section:</p>
-        </div>
-        <img id="plusIMG" src="IMG/plus.png" height="50"/>
-        <p>Number of tickets</p>
-        <img id="minusIMG" src="IMG/minus.png" height="50"/>
-        <p>Total price $</p>
-    </div>
-    <div class="item">
-        <p>Name show</p>
-        <div class="show-info">
-            <p>Image show</p>
-            <p>Auditorium:</p>
-            <p>Section:</p>
-        </div>
-        <img id="plusIMG" src="IMG/plus.png" height="50"/>
-        <p>Number of tickets</p>
-        <img id="minusIMG" src="IMG/minus.png" height="50"/>
-        <p>Total price $</p>
-    </div>
+    <?php load_cart_items($_SESSION['panier'], new Show(), new Representation(), new Auditorium) ?>
 </div>

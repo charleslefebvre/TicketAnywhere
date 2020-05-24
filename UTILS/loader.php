@@ -59,5 +59,27 @@ function load_select_options($list,$value){
         echo "<option value=".strtolower($item['id']).">".$item[$value]."</option>";
     }
 }
+
+function load_cart_items($array, $Show, $Representation, $Auditorium){
+    foreach($array as $item){
+        $currentShow = $Show->getByID($item['showId']);
+        $currentRepresentation = $Representation->getByID($item['representationId']);
+        $currentSection = $Auditorium->getSectionById($item['section']);
+        echo "
+        <div class='item'>
+            <img src='".$currentShow['imageURL']."' height='50' alt='show'>
+            <div class='show-info'>
+                <p>".$currentShow['name']."</p>
+                <p>Auditorium: ".$currentRepresentation['name']."</p>
+                <p>Section: ".$currentSection['color']."</p>
+            </div>
+            <img id='plusIMG' src='IMG/plus.png' height='50'/>
+            <p>Number of tickets</p>
+            <img id='minusIMG' src='IMG/minus.png' height='50'/>
+            <p>Total price $</p>
+        </div>
+        ";
+    }
+}
 ?>
 
