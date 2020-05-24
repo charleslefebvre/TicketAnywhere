@@ -21,6 +21,11 @@
         $auditorium = new Auditorium();
         $representation->display($represetationList, $auditorium, getShowByID($_GET['showId']));
     }
+    if(isset($_SESSION['alertMessage'])){
+        $message = $_SESSION['alertMessage'];
+        echo "<script>alert('$message')</script>";
+        unset($_SESSION['alertMessage']);
+    }
 ?>
 
 <p id="title"><?php echo $currentShow['name'] ?></p>

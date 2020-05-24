@@ -65,6 +65,7 @@ function load_cart_items($array, $Show, $Representation, $Auditorium){
         $currentShow = $Show->getByID($item['showId']);
         $currentRepresentation = $Representation->getByID($item['representationId']);
         $currentSection = $Auditorium->getSectionById($item['section']);
+        $numberOfTickets = $item['numberOfTickets'];
         echo "
         <div class='item'>
             <img src='".$currentShow['imageURL']."' height='50' alt='show'>
@@ -74,7 +75,7 @@ function load_cart_items($array, $Show, $Representation, $Auditorium){
                 <p>Section: ".$currentSection['color']."</p>
             </div>
             <img id='plusIMG' src='IMG/plus.png' height='50'/>
-            <p>Number of tickets</p>
+            <p>$numberOfTickets</p>
             <img id='minusIMG' src='IMG/minus.png' height='50'/>
             <p>Total price $</p>
         </div>
