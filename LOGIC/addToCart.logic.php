@@ -16,7 +16,6 @@ $ticketInfos['numberOfTickets'] = 1;
 if(in_array($ticketInfos,$_SESSION['panier'])){
     $index = array_search($ticketInfos,$_SESSION['panier']);
     $_SESSION['panier'][$index]['numberOfTickets'] += 1;
-    $_SESSION['panier'][$index]['price'] *= $_SESSION['panier'][$index]['numberOfTickets'];
 }
 else{
     array_push($_SESSION['panier'], $ticketInfos);

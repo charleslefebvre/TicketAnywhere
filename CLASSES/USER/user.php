@@ -8,6 +8,7 @@ class User
     private $email;
     private $userName;
     private $pw;
+    private $admin;
 
     public function __construct(){}
 
@@ -26,6 +27,7 @@ class User
         $this->email = $res['email'];
         $this->userName = $res['f_name'] . " " . $res['l_name'];
         $this->password = $res['pw'];
+        $this->admin = $res['admin'];
 
         $TDG = null;
         return true;
@@ -46,6 +48,7 @@ class User
         $_SESSION["userID"] = $this->id;
         $_SESSION["userEmail"] = $this->email;
         $_SESSION["userName"] = $this->userName;
+        $_SESSION["admin"] = $this->admin;
 
         return true;
     }
