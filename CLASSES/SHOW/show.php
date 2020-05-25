@@ -14,6 +14,13 @@ class Show
 
     public function __construct(){}
 
+    public function addShow($name, $description, $categoryId, $price, $artist, $url){
+        $TDG = ShowTDG::getInstance();
+        $resp = $TDG->add_show($name, $description, $categoryId, $price, $artist, $url);
+        $TDG = null;
+        return $resp;
+    }
+
     public function getAll($count){
         $TDG = ShowTDG::getInstance();
         $list = $TDG->get_all($count);
