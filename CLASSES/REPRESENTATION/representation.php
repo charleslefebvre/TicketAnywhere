@@ -25,6 +25,13 @@ class Representation
         return $representation;
     }
 
+    public function addRepresentation($showId, $date, $auditoriumId){
+        $TDG = RepresentationTDG::getInstance();
+        $resp = $TDG->add_representation($showId, $date, $auditoriumId);
+        $TDG = null;
+        return $resp;
+    }
+
     public function display($representationList, $auditorium, $show){
         if(!empty($representationList)){
             foreach($representationList as $representation){
@@ -42,9 +49,9 @@ class Representation
                                     <h6 class='price'>Price: ".$show['starting_price'] * $sections[0]['mp_price']."$</h6>
                                 </div>
                                 <div class='col-sm'>
-                                    <select name='section' class='custom-select select'>";            
-                                        load_select_options($sections, 'color');
-                                echo "</select>
+                                <select name='section' class='custom-select select'>";            
+                                load_select_options($sections, 'color');
+                        echo "</select>
                                 </div>
                                 <div class='button-container'>
                                     <input type='hidden' name='showId' value='".$show['id']."'/>

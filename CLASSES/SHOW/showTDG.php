@@ -18,6 +18,28 @@ class ShowTDG extends DBAO{
         return self::$_instance;
     }
 
+    public function add_show($name, $description, $categoryId, $price, $artist, $url){
+        try{
+            $conn = $this->connect();
+            $query = 'call addShow(?,?,?,?,?,?)';
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(1, $name, PDO::PARAM_STR, 45);
+            $stmt->bindParam(2, $description, PDO::PARAM_STR, 200);
+            $stmt->bindParam(3, $categoryId, PDO::PARAM_INT, 11);
+            $stmt->bindParam(4, $price, PDO::PARAM_LOB);
+            $stmt->bindParam(5, $artist, PDO::PARAM_STR, 45);
+            $stmt->bindParam(6, $url, PDO::PARAM_STR, 250);
+            $stmt->execute();
+            $resp = true;
+        }
+        catch(PDOException $e)
+        {
+           $resp = false;
+        }
+        $conn = null;
+        return $resp;
+    }
+
     public function get_all($count){
         try{
             $conn = $this->connect();

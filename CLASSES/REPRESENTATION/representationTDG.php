@@ -51,5 +51,24 @@ class RepresentationTDG extends DBAO{
         $conn = null;
         return $result;
     }
+
+    public function add_representation($showId, $date, $auditoriumId){
+        try{
+            $conn = $this->connect();
+            $query = 'call addShow(?,?,?)';
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(1, $showId, PDO::PARAM_INT, 11);
+            $stmt->bindParam(2, $date, PDO::PARAM_LOB);
+            $stmt->bindParam(3, $auditoriumId, PDO::PARAM_INT, 11);
+            $stmt->execute();
+            $resp = true;
+        }
+        catch(PDOException $e)
+        {
+           $resp = false;
+        }
+        $conn = null;
+        return $resp;
+    }
 }
 ?>

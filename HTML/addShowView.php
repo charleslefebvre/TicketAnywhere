@@ -6,10 +6,16 @@
     $categories = $category->getAll();
     $auditorium = new Auditorium;
     $auditoriums = $auditorium->getAll();
+
+    if(isset($_SESSION['alertMessage'])){
+        $message = $_SESSION['alertMessage'];
+        echo "<script>alert('$message')</script>";
+        unset($_SESSION['alertMessage']);
+    }
 ?>
 <p id="title">New show</p>
 <div class="content">
-    <form enctype="multipart/form-data">
+    <form id="addShow-form" enctype="multipart/form-data" method="post" action="LOGIC/addShow.logic.php">
         <div class="form-row">
             <div class="form-group">
                 <label>Show's name</label>
@@ -26,7 +32,7 @@
         <div class="form-row">
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Description</label>
-                <textarea class="form-control" rows="4" cols="75"></textarea>
+                <textarea name="description" class="form-control" rows="4" cols="75"></textarea>
             </div>
         </div>
         <div class="form-row">
@@ -38,7 +44,7 @@
             </div>
             <div class="form-group ml-2">
                 <label>Starting price</label>
-                <input name="price" class="form-control" placeholder="Enter starting price">
+                <input type="number" min="0" name="price" class="form-control" placeholder="Enter starting price">
             </div>
         </div>
         <hr>
@@ -48,11 +54,11 @@
             <div class="form-row">
                 <div class="form-group">
                     <label>Date</label>
-                    <input id="datepicker" name="date" readonly class="form-control long">
+                    <input id="datepicker" name="date0" readonly class="form-control long">
                 </div>
                 <div class="form-group">
                     <label>Auditorium</label>
-                    <select id="auditoriums" name="auditoriumId" class="custom-select">
+                    <select id="auditoriums" name="auditoriumId0" class="custom-select">
                         <?php load_select_options($auditoriums,'name')?>
                     </select>
                 </div>
