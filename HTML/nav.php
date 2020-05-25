@@ -21,8 +21,7 @@
                 <a class='dropdown-item' href='logout.php'>Logout</a>
             </div>
         </div>");
-        if($_SESSION['admin'] == '1')
-            array_push($dropDownItems,'AddShow');
+        //array_push($dropDownItems,'Logout');
     }
 ?>
 <div id="navbar">
