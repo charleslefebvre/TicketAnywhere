@@ -61,27 +61,29 @@ function load_select_options($list,$value){
 }
 
 function load_cart_items($array, $Show, $Representation, $Auditorium){
-    $counter = 1;
     foreach($array as $item){
         $currentShow = $Show->getByID($item['showId']);
         $currentRepresentation = $Representation->getByID($item['representationId']);
         $currentSection = $Auditorium->getSectionById($item['section']);
         $numberOfTickets = $item['numberOfTickets'];
+        $id = $item['showId'].'ticket'.$item['representationId'];
         echo "
         <div class='item'>
-            <img src='".$currentShow['imageURL']."' height='50' alt='show'>
+            <img src='".$currentShow['imageURL']."' class='imgShow' alt='show'>
             <div class='show-info'>
                 <p>".$currentShow['name']."</p>
                 <p>Auditorium: ".$currentRepresentation['name']."</p>
                 <p>Section: ".$currentSection['color']."</p>
             </div>
-            <img id='plusIMG' src='IMG/plus.png' height='50'/>
-            <p id='$counter'>$numberOfTickets</p>
-            <img id='minusIMG' src='IMG/minus.png' height='50'/>
-            <p>Total price $</p>
+            <div class='price-info'>
+                <img id='plusIMG' src='IMG/plus.png' />
+                <p id='$id'>$numberOfTickets</p>
+                <img id='minusIMG' src='IMG/minus.png'/>
+                <p id='price$id'>".$item['price']."$</p>
+            </div>
+
         </div>
         ";
-        $counter++;
     }
 }
 ?>

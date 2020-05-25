@@ -42,15 +42,14 @@ class Representation
                                     <h6 class='price'>Price: ".$show['starting_price'] * $sections[0]['mp_price']."$</h6>
                                 </div>
                                 <div class='col-sm'>
-                                    <select name='section' class='custom-select select'>";
-                
-                load_select_options($sections, 'color');
-    
-                echo "              </select>
+                                    <select name='section' class='custom-select select'>";            
+                                        load_select_options($sections, 'color');
+                                echo "</select>
                                 </div>
                                 <div class='button-container'>
                                     <input type='hidden' name='showId' value='".$show['id']."'/>
                                     <input type='hidden' name='representationId' value='".$representation['id']."'/>
+                                    <input type='hidden' name='price' value='".$show['starting_price'] * $sections[0]['mp_price']."'/>
                                     <button type='submit' class='btn btn-primary'>Buy</button>
                                 </div>
                             </div>
