@@ -45,9 +45,6 @@
             <input type="hidden" name="tab" value="<?php if(isset($_GET['tab'])){echo $_GET['tab'];}else{echo 'artists';} ?>"/>
         </form>
     </div>
-    <div id="all-shows">
-        <a href="allShows.php">See all shows</a>
-    </div>
     <div id="user-container">
       <?php
         foreach($userArray as $element){

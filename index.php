@@ -7,6 +7,7 @@
 
     $title = "Ticket Anywhere";
     $styles = array();
+    $script = 'index.js';
     array_push($styles,'index.css');
     require_once __DIR__ . "/HTML/masterpage.php";
 ?>

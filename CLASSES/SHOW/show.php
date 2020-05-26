@@ -79,8 +79,16 @@ class Show
             echo "<script>
                     $('#moreShowsContainer').empty();
                     $('#moreShowsContainer').append('<p>No more show to display</p>')
-                </script>";    
-        
+                </script>";           
+    }
+    public function display_all_shows($count){
+        $showList = $this->getAll($count);
+        $this->load_show($showList);
+        if(count($showList) < $count)
+        echo "<script>
+                $('#moreShowsContainer').empty();
+                $('#moreShowsContainer').append('<p>No more show to display</p>')
+            </script>";           
     }
 
     public function load_show($showList){
@@ -93,7 +101,6 @@ class Show
             </script>";
             return;
         }
-        $count = 0;
         for($i = 0; $i < count($showList); ++$i){
             if($i % 2 == 0)
                 echo "<div class='row'>";
