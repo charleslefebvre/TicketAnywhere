@@ -11,7 +11,8 @@
             unset($cart[$i]);            
             $_SESSION['panier'] = $cart;
             if(count($_SESSION['panier']) == 0){
-                echo "<h3 id='emptyCart'>Your cart is empty</h3>";
+                echo "<h3 id='emptyCart'>Your cart is empty</h3>
+                <script> $('#buyContainer').empty();</script>";
                 unset($_SESSION['panier']);
             }
             else{
