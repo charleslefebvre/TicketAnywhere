@@ -116,7 +116,7 @@ class Show
                     <div class='button-container'>
                         <form method='get' action='./representations.php'>
                             <input type='hidden' name='showId' value='".$showList[$i]['id']."'/>
-                            <button type='submit' class='btn btn-primary'>Buy</button>   
+                            <button type='submit' class='btn btn-primary'>Details</button>   
                         </form>
                     </div>
                 </div>";
