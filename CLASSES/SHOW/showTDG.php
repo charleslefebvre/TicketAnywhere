@@ -30,14 +30,15 @@ class ShowTDG extends DBAO{
             $stmt->bindParam(5, $artist, PDO::PARAM_STR, 45);
             $stmt->bindParam(6, $url, PDO::PARAM_STR, 250);
             $stmt->execute();
-            $resp = true;
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetch();
         }
         catch(PDOException $e)
         {
-           $resp = false;
+           $result = null;
         }
         $conn = null;
-        return $resp;
+        return $result;
     }
 
     public function get_all($count){
