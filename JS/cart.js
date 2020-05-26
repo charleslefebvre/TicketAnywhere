@@ -52,7 +52,14 @@ $(document).ready(() => {
                 representationId: representationId
             })
         }
-        
-
+    })
+    $('* #xIMG').click((e) => {
+        let parent = e.target.parentElement;
+        let showId = parent.id.split('ticket')[0];
+        let representationId = parent.id.split('ticket')[1];
+        $("#container").load("LOGIC/removeCartItem.logic.php",{
+            showId : showId,
+            representationId: representationId
+        })
     })
 })

@@ -52,7 +52,8 @@ function load_cart_items($array, $Show, $Representation, $Auditorium){
         $numberOfTickets = $item['numberOfTickets'];
         $id = $item['showId'].'ticket'.$item['representationId'];
         echo "
-        <div class='item'>
+        <div class='item' id='$id'>
+            <img id='xIMG' src='IMG/plus.png'/>
             <img src='".$currentShow['imageURL']."' class='imgShow' alt='show'>
             <div class='show-info'>
                 <p>".$currentShow['name']."</p>

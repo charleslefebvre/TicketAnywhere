@@ -7,7 +7,7 @@
     margin-bottom: 1em;
     border: 1px solid rgb(0, 0, 0, 0.05);
     border-radius: 1em;
-    width: 70vw;
+    width: 75vw;
 }
 .item {
     display: flex;
@@ -15,7 +15,7 @@
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid rgb(0, 0, 0, 0.05);
-    padding: 2vw;
+    padding: 1vw;
 }
 .item * {
     font-size: 1.25vw;
@@ -33,9 +33,25 @@
 .price-info {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 25vw;
 }
-#plusIMG, #minusIMG{
+#plusIMG, #minusIMG, #xIMG{
     height: 3vw;
+    cursor: pointer;
+}
+#xIMG {
+    transform: rotate(45deg);
+    opacity: .5;
+}
+#emptyCart {
+    font-size: 1.25vw;
+}
+#buyContainer {
+    margin-top: 3vw;
+}
+#buyContainer .btn {
+    width: 20vw;
+    align-self: center;
+    font-size: 1vw;
 }

@@ -10,7 +10,10 @@
             echo "<div id='container'>";
             load_cart_items($_SESSION['panier'], new Show(), new Representation(), new Auditorium);
             echo "</div>";
+            echo "<div id='buyContainer'>
+                <button id='buy' class='btn btn-primary' onclick='window.location.href=`LOGIC/purchases.logic.php`'>Finalize purchases</button>
+            </div>";
         }
         else
-            echo "<h3>Your cart is empty</h3>"
+            echo "<h3 id='emptyCart'>Your cart is empty</h3>"
     ?>
