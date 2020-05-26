@@ -51,8 +51,9 @@ function load_cart_items($array, $Show, $Representation, $Auditorium){
         $currentSection = $Auditorium->getSectionById($item['section']);
         $numberOfTickets = $item['numberOfTickets'];
         $id = $item['showId'].'ticket'.$item['representationId'];
+        $idItem = $item['showId'].'ticketItem'.$item['representationId'];
         echo "
-        <div class='item' id='$id'>
+        <div class='item' id='$idItem'>
             <img id='xIMG' src='IMG/plus.png'/>
             <img src='".$currentShow['imageURL']."' class='imgShow' alt='show'>
             <div class='show-info'>

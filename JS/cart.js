@@ -3,6 +3,7 @@ $(document).ready(() => {
         //number of items
         let children = Array.prototype.slice.call(e.target.parentElement.children);
         let tickets = children.filter((element) => element.id.includes("ticket") && element.tagName == 'P'); 
+        console.log(tickets);
         let numberOfTickets = tickets[0].textContent;
         numberOfTickets++;
         let showId = tickets[0].id.split('ticket')[0];
@@ -55,8 +56,9 @@ $(document).ready(() => {
     })
     $('* #xIMG').click((e) => {
         let parent = e.target.parentElement;
-        let showId = parent.id.split('ticket')[0];
-        let representationId = parent.id.split('ticket')[1];
+        console.log(parent);
+        let showId = parent.id.split('ticketItem')[0];
+        let representationId = parent.id.split('ticketItem')[1];
         $("#container").load("LOGIC/removeCartItem.logic.php",{
             showId : showId,
             representationId: representationId

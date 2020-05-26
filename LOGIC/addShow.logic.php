@@ -29,17 +29,16 @@
     }
 
     $show = new Show();
-    $id = $show->addShow($name, $description, $categoryId, $price, $artist, $url);
-    if(is_null($id)){
+    if(!($show->addShow($name, $description, $categoryId, $price, $artist, $url))){
         header("Location: ../addShow.php");
         $_SESSION['alertMessage'] = "An error occured, please try again";
         die();
     }
-
+    
     $representation = new Representation();
     foreach($repData as $rep){
         if($rep['date'] !== ''){
-            $representation->addRepresentation($id['id'], $rep['date'], $rep['auditorium']);
+            $representation->addRepresentation(ID, $rep['date'], $rep['auditoriumId']);
         }
     }
 
