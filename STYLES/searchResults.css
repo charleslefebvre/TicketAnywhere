@@ -1,9 +1,5 @@
 .jumbotron {
     display: flex;
-    flex-direction: row;
-}
-#filter-container {
-    display: flex;
     flex-direction: column;
 }
 #tab-container {
@@ -25,57 +21,6 @@
 #tab-container #selected-tab{
     border-bottom: 3px solid dodgerblue;
 }
-#container{
-    display: flex;
-    flex-direction: row;
-    position: relative;
-}
-#filter {
-    height: 30vw;
-    width: 20vw;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 1.5vw;
-    background-color: #FFF;
-    border: 1px solid rgb(0, 0, 0, 0.05);
-    border-radius: 1em;
-}
-#filter #header {
-    display: flex;
-    width: 15vw;
-    height: 3.5vw;
-    justify-content: space-between;
-    align-content: flex-start;
-    border-bottom: 1px solid rgb(0, 0, 0, 0.05);
-}
-#filter #header button {
-    height: 2vw;
-    width: 6vw;
-    font-size: 1vw;
-    line-height: 0vw;
-}
-#filter #title,.info-container .title {
-    font-size: 1.75vw;
-    padding-bottom: 1em;
-    color: #3D5A80;
-    width: 15vw;
-}
-#filter .tab {
-    padding-bottom: 1vw;
-    padding-top: 1vw;
-    border-bottom: 1px solid rgb(0, 0, 0, 0.05);
-    width: 15vw;
-}
-#filter .tab-title{
-    font-size: 1.25vw;
-    color: dodgerblue;
-    padding-bottom: 0.5vw;
-}
-#filter label {
-    font-size: 1vw;
-}
 #container {
     display: flex;
     flex-direction: column;
@@ -84,9 +29,15 @@
 #list {
     display: flex;
     flex-direction: column;
-    width: 65vw;
+    width: 90vw;
     justify-content: center;
     margin-left: 2em;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    padding: 1em;
 }
 .info-container {
     display: flex;
@@ -95,32 +46,50 @@
     background-color: #FFF;
     padding: 1em;
     margin-bottom: 1em;
+    margin-right: 1em;
     border: 1px solid rgb(0, 0, 0, 0.05);
     border-radius: 1em;
+    width: 45%;
 }
-.info-container img {
-    height: 12vw;
-    width: 18vw;
-    margin-right: 3vw;
+.info-container .title {
+    font-size: 1.75vw;
+    padding-bottom: 1em;
+    color: #3D5A80;
+    width: 15vw;
 }
 .info-container .infos {
     display: flex;
     flex-direction: column;
-    margin-right: 10vw;
     width: 15vw;
+    margin-left: 1em;
 }
-.info-container .infos .artist, .price, .category, .ticket {
+.info-container .infos .artist, .price, .category, .ticket, .auditorium {
     font-size: 1vw;
 }
 .info-container .button-container {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
-    width: 25vw;
+    width: 15vw;
 }
 .info-container .button-container button {
     height: auto;
+    width: 7vw;
+    font-size: 1vw;
+}
+.info-container .imgShow {
+    height: 9vw;
+    width: 15vw;
+}
+#list .categories{
+    font-size: 1.5vw;
+    margin-bottom: 1vw;
+    margin-top: 1vw;
+    border-bottom: 1px solid rgba(0,0,0,.5);
+    padding-bottom: 1vw;
     width: 10vw;
+}
+#list .noResult{
     font-size: 1vw;
 }
 #moreShowsContainer{
@@ -133,37 +102,4 @@
 }
 #moreShowsContainer p {
     font-size: 1.25vw;
-}
-@media screen and (max-width: 1024px){
-    #container{
-        flex-direction: column;
-    }
-    #filter-container {
-        width: 85vw;
-        justify-content: space-between;
-        align-items: flex-end;
-        flex-direction: row;
-    }
-    #filter {
-        flex-direction: row;
-        justify-content: space-between;
-        height: 15vw;
-        width: 60vw;
-        padding: 1.5vw;
-    }
-    #filter .tab {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: column wrap;
-        padding: 0;
-        height: 15vw;
-
-    }
-    #list{
-        width: 85vw;
-        margin-left: 0;
-    }
-    .jumbotron {
-        flex-direction: column;
-    }
 }

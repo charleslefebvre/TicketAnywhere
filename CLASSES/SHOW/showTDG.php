@@ -110,13 +110,14 @@ class ShowTDG extends DBAO{
         return $result;
     }
 
-    public function get_by_category($category,$count){
+    public function get_by_category($search,$count,$categoryId){
         try{
             $conn = $this->connect();
-            $query = 'call getShowByCategory(?,?)';
+            $query = 'call getShowByCategory(?,?,?)';
             $stmt = $conn->prepare($query);
-            $stmt->bindParam(1, $category, PDO::PARAM_STR, 60);
+            $stmt->bindParam(1, $search, PDO::PARAM_STR, 60);
             $stmt->bindParam(2, $count, PDO::PARAM_INT);
+            $stmt->bindParam(3, $categoryId, PDO::PARAM_INT);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $result = $stmt->fetchAll();

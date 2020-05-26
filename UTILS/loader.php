@@ -12,9 +12,9 @@ function load_styles($styleList){
     }
 }
 function load_tabs(){
-    if(isset($_SESSION['tab'])){         
+    if(isset($_GET['tab'])){         
         $query = filter_query();
-        $tabSelected = $_SESSION['tab'];
+        $tabSelected = $_GET['tab'];
         echo "<div id='tab-container'><a ";
         if($tabSelected == 'artists'){echo"id='selected-tab'";}echo"href='?tab=artists$query'>Artists</a><a ";
         if($tabSelected == 'auditoriums'){echo"id='selected-tab'";}echo"href='?tab=auditoriums$query'>Auditoriums</a><a ";
@@ -37,22 +37,6 @@ function filter_query(){
         $string .= "&$key=$value";
     }
     return $string;
-}
-function load_category_checkbox($checkboxList,$value){
-    
-    foreach($checkboxList as $checkbox){
-        $name = strtolower($checkbox[$value]);
-        echo "<div class='form-check'>
-                <input class='form-check-input' type='checkbox' name='$name'value='".$checkbox['id']."'";
-        if(isset($_GET[$name])){
-            echo "checked";
-        } 
-        
-        echo"><label class='form-check-label' for='$name'>".
-            $checkbox[$value]."
-        </label>
-        </div>";
-    }
 }
 function load_select_options($list,$value){
     foreach($list as $item){

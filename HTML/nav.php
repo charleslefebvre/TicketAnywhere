@@ -42,6 +42,7 @@
     <div id="search-bar">
         <form method="get" action="searchResults.php">
             <input name="search" class="form-control" autocomplete="off" placeholder="Search for artists, auditoriums, and categories">
+            <input type="hidden" name="tab" value="<?php if(isset($_GET['tab'])){echo $_GET['tab'];}else{echo 'artists';} ?>"/>
         </form>
     </div>
     <div id="all-shows">

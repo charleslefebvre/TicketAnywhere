@@ -1,6 +1,7 @@
 <?php
 
 include_once __DIR__ . "/showTDG.php";
+include_once __DIR__ . "/../CATEGORY/category.php";
 
 class Show
 {
@@ -49,36 +50,42 @@ class Show
         return $list;
     }
 
-    public function getByCategory($category,$count){
+    public function getByCategory($category,$count,$categoryId){
         $TDG = ShowTDG::getInstance();
-        $list = $TDG->get_by_category($category,$count);
+        $list = $TDG->get_by_category($category,$count,$categoryId);
         $TDG = null;
         return $list;
     }
     public function displayShow($tab, $search,$count){
-        if($search == ""){
-            $showList = $this->getAll($count);
-        } 
-        else {
-            if($tab == "artists"){
-                $showList = $this->getByArtist($search,$count);
-            } else if($tab == "auditoriums"){
-                $showList = $this->getByAuditorium($search,$count);
-            } else if($tab == "categories"){
-                $showList = $this->getByCategory($search,$count);
-            }
+        if($tab == "categories"){
+            $category = new Category();
+            $categories = $category->getAll();
+            foreach($categories as $item){
+                $showList = $this->getByCategory($search,$count,$item['id']);
+                echo "<h2 class='categories'>".$item['description']."</h2>";
+                $this->load_show($showList);
+            }     
+        }
+        else if($tab == "artists"){
+            $showList = $this->getByArtist($search,$count);
+            $this->load_show($showList);
+        }
+        else if($tab == "auditoriums"){
+            $showList = $this->getByAuditorium($search,$count);
+            $this->load_show($showList);
+
         }
         if(count($showList) < $count)
             echo "<script>
                     $('#moreShowsContainer').empty();
                     $('#moreShowsContainer').append('<p>No more show to display</p>')
                 </script>";    
-        $this->load_show($showList);
+        
     }
 
     public function load_show($showList){
         if(count($showList) == 0){
-            echo "<h3>No search result</h3>
+            echo "<h3 class='noResult'>No search result</h3>
             <script>
             $(document).ready(() => {
                 $('#moreShowsContainer').empty();
@@ -86,23 +93,28 @@ class Show
             </script>";
             return;
         }
-        foreach($showList as $show){
+        $count = 0;
+        for($i = 0; $i < count($showList); ++$i){
+            if($i % 2 == 0)
+                echo "<div class='row'>";
             echo "<div class='info-container'>
-                <img src='".$show['imageURL']."' height='50' alt='show'>
+                <img class='imgShow' src='".$showList[$i]['imageURL']."' alt='show'>
                 <div class='infos'>
-                    <h6 class='title'>".$show['name']."</h6>
-                    <h6 class='artist'>".$show['artist_name']."</h6>
-                    <h6 class='category'>Category: ".$show['category']."</h6>
-                    <h6 class='price'>Starting price: ".$show['starting_price']. "$</h6>
-                    <h6 class='ticket'>X tickets left</h6>
+                    <h6 class='title'>".$showList[$i]['name']."</h6>
+                    <h6 class='artist'>".$showList[$i]['artist_name']."</h6>
+                    <h6 class='category'>Category: ".$showList[$i]['category']."</h6>
+                    <h6 class='auditorium'>Auditorium: ".$showList[$i]['auditorium_name']."</h6>
+                    <h6 class='price'>Starting price: ".$showList[$i]['starting_price']. "$</h6>
                     </div>
                     <div class='button-container'>
                         <form method='get' action='./representations.php'>
-                            <input type='hidden' name='showId' value='".$show['id']."'/>
+                            <input type='hidden' name='showId' value='".$showList[$i]['id']."'/>
                             <button type='submit' class='btn btn-primary'>Buy</button>   
                         </form>
                     </div>
                 </div>";
+            if($i % 2 != 0 || $i == count($showList) -1)
+                echo "</div>";
         }
     }
 }
