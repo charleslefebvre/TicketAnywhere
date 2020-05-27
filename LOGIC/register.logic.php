@@ -19,6 +19,11 @@
     $user = new User();
 
     if($user->register($f_name, $l_name, $email, $address,$city,$zip,$pw))
+        if(isset($_POST['email']))
+        {
+            mail($email, 'Email de confirmation', 'Bonjour, ce message vous a été envoyé automatiquement pour confirmer votre inscription.');
+            echo 'Un email de confirmation a été envoyé';
+        }
         header("Location: ../login.php");
     else
         header("Location: ../register.php");
