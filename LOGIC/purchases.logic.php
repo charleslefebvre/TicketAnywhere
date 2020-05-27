@@ -24,7 +24,12 @@ $user = new User();
 $email = $user->findEmailById($_SESSION['userID']);
 if(isset($email))
 {
-    mail($email, 'Confirmation de votre achat', 'Cet email vous a été envoyé automatiquement lors de votre achat pour confirmer que celui ci a bien été effectué.');
+    $header = "TicketAnywhere Confirmation\r\n";
+    $header . = 'From:"http://167.114.152.54/~billetpartout06/"<support@ticketanywhere>' . "\n";
+    $header . = 'Content-Type:text/html; charset="uft-8"' . "\n";
+    $header . = 'Content-Transfer-Encoding: 8bit';
+    $message = 'Cet email vous a été envoyé automatiquement lors de votre achat pour confirmer que celui ci a bien été effectué.';
+    mail($email, 'Confirmation de votre achat', $message, $header);
     echo 'Email de confirmation de votre achat envoyé.'
 }
 
