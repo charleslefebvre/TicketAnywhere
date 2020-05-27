@@ -3,6 +3,7 @@ include_once __DIR__ . "/../CLASSES/REPRESENTATION/representation.php";
 include_once __DIR__ . "/../CLASSES/SHOW/show.php";
 include_once __DIR__ . "/../CLASSES/AUDITORIUM/auditorium.php";
 include_once __DIR__ . "/../CLASSES/PURCHASE/purchase.php";
+include_once __DIR__ . "/../CLASSES/USER/user.php";
 
 session_start();
 $panier = $_SESSION['panier'];
@@ -19,6 +20,13 @@ foreach($panier as $item){
 }
 
 // ENVOIE DU EMAIL
+$user = new User();
+$email = $user->findEmailById($_SESSION['userID']);
+if(isset($email))
+{
+    mail($email, 'Confirmation de votre achat', 'Cet email vous a été envoyé automatiquement lors de votre achat pour confirmer que celui ci a bien été effectué.');
+    echo 'Email de confirmation de votre achat envoyé.'
+}
 
 // SUPPRIMER $_SESSION['panier']
 unset($_SESSION['panier']);
