@@ -58,5 +58,24 @@ class UserTDG extends DBAO{
         $conn = null;
         return $resp;
     }
+    
+    public function get_by_id($id){
+        
+        try{
+            $conn = $this->connect();
+            $query = 'call get_by_id(?)';
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(1, $id, PDO::PARAM_STR, 50);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetch();
+        }
+        catch(PDOException $e)
+        {
+            echo "Error: " . $e->getMessage();
+        }
+        $conn = null;
+        return $result;
+    }
 
 }
