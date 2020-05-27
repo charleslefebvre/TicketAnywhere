@@ -1,0 +1,23 @@
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #FFF;
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 1px solid rgb(0, 0, 0, 0.05);
+    border-radius: 1em;
+    width: 75vw;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgb(0, 0, 0, 0.05);
+    padding: 1vw;
+}
+.item * {
+    font-size: 1.25vw;
+}

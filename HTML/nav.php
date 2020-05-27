@@ -17,7 +17,7 @@
             </button>
             <div class='dropdown-menu dropdown-menu-right' aria-labelledby='dropdownMenuButton'>
                 <a class='dropdown-item' href='cart.php'>My cart</a>
-                <a class='dropdown-item' href='settings.php'>Settings</a>
+                <a class='dropdown-item' href='purchaseHistory.php'>Purchase History</a>
                 <a class='dropdown-item' href='logout.php'>Logout</a>
             </div>
         </div>");
