@@ -21,7 +21,12 @@
     if($user->register($f_name, $l_name, $email, $address,$city,$zip,$pw))
         if(isset($_POST['email']))
         {
-            mail($email, 'Email de confirmation', 'Bonjour, ce message vous a été envoyé automatiquement pour confirmer votre inscription.');
+            $header = "TicketAnywhere Confirmation\r\n";
+            $header . = 'From:"http://167.114.152.54/~billetpartout06/"<support@ticketanywhere>' . "\n";
+            $header . = 'Content-Type:text/html; charset="uft-8"' . "\n";
+            $header . = 'Content-Transfer-Encoding: 8bit';
+            $message = '<h1>Bonjour,</h1><p>Ce message vous a été envoyé automatiquement pour confirmer votre inscription.</p>';
+            mail($email, 'Email de confirmation', $message, $header);
             echo 'Un email de confirmation a été envoyé';
         }
         header("Location: ../login.php");
