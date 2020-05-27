@@ -77,4 +77,22 @@ class PurchaseTDG extends DBAO{
         $conn = null;
         return $result;
     }
+
+    public function get_purchase_by_user_ID($userId){
+        try{
+            $conn = $this->connect();
+            $query = 'call getPurchasesByUserId(?)';
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(1, $userId, PDO::PARAM_INT, 11);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
+        }
+        catch(PDOException $e)
+        {
+           $result = null;
+        }
+        $conn = null;
+        return $result;
+    }
 }

@@ -26,4 +26,33 @@ class Purchase
         $TDG = null;
         return $res;
     }
+
+    public function loadPurchase($userId){
+        $TDG = PurchaseTDG::getInstance();
+        $purchaseList = $TDG->get_purchase_by_user_ID($userId);
+
+        if(count($purchaseList) == 0){
+            echo "<h3>No result</h3>";
+            return;
+        }
+
+        foreach($purchaseList as $purchase){
+            echo "
+            <div class='item'>
+                <div class='info'>
+                    <h6 class='title'>Achat<h6>
+                </div>
+                <div class='info'>
+                    <h6 class='date'>".$purchase['date']."<h6>
+                </div>
+                <div class='button-container'>
+                    <form method='get' action='./representations.php'>
+                        <input type='hidden' name='purchaseId' value='".$purchase['id']."'/>
+                        <button type='submit' class='btn btn-primary'>Voir details</button>   
+                    </form>
+                </div>
+            </div>
+            ";
+        }
+    }
 }
