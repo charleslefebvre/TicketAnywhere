@@ -74,4 +74,19 @@ class User
         $TDG = null;
         return true;
     }
+    
+    public function findEmailById($id)
+    {
+        $TDG = UserTDG::getInstance();
+        $res = $TDG->get_by_id($id);
+
+        if (!$res) {
+            $TDG = null;
+            $_SESSION['error'] = "No account found with given id";
+            return false;
+        }
+
+        $TDG = null;
+        return $res['email'];
+    }
 }
