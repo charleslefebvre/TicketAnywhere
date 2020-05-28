@@ -22,7 +22,7 @@
             </div>
         </div>");
         if($_SESSION['admin'] == '1')
-            array_push($dropDownItems,'AddShow');
+            array_push($dropDownItems,'addShow');
     }
 ?>
 <div id="navbar">
@@ -33,7 +33,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <?php
             foreach($dropDownItems as $item){
-                echo "<a class='dropdown-item' href='".strtolower($item).".php'>$item</a>";
+                echo "<a class='dropdown-item' href='".$item.".php'>$item</a>";
             }
         ?>
         </div>
