@@ -18,7 +18,7 @@ $(document).ready(() => {
         let pPrice = children.filter((element) => element.id.includes("price") && element.tagName == 'P')
         let price = pPrice[0].textContent;
         price = price.substring(0,price.length-1);
-        price = parseInt(price);
+        price = parseFloat(price);
         price += price/(numberOfTickets-1);
         $(`#${pPrice[0].id}`).load("LOGIC/updatePrice.logic.php",{
             newPrice: price,
@@ -45,7 +45,7 @@ $(document).ready(() => {
             let pPrice = children.filter((element) => element.id.includes("price") && element.tagName == 'P')
             let price = pPrice[0].textContent;
             price = price.substring(0,price.length-1);
-            price = parseInt(price);
+            price = parseFloat(price);
             price -= price/(numberOfTickets+1);
             $(`#${pPrice[0].id}`).load("LOGIC/updatePrice.logic.php",{
                 newPrice: price,

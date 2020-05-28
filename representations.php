@@ -7,6 +7,7 @@
 
     $title = "Representations";
     $styles = array();
+    $script = 'representation.js';
     array_push($styles,'representations.css','pageFormat.css');
     require_once __DIR__ . "/HTML/masterpage.php";
 ?>

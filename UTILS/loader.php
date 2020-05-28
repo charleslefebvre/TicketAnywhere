@@ -43,6 +43,14 @@ function load_select_options($list,$value){
         echo "<option value=".strtolower($item['id']).">".$item[$value]."</option>";
     }
 }
+function load_representation_sections($list,$starting_price){
+    foreach($list as $item){
+        $val = $item['id'];
+        $name = $item['color'];
+        $id = $item['mp_price']*$starting_price;
+        echo "<option id='$id' value='$val'>$name</option>";
+    }
+}
 
 function load_cart_items($array, $Show, $Representation, $Auditorium){
     foreach($array as $item){
