@@ -99,7 +99,7 @@ class PurchaseTDG extends DBAO{
     public function get_full_purchase_info_by_purchase_Id($purchaseId){
         try{
             $conn = $this->connect();
-            $query = 'call getPurchasesByUserId(?)';
+            $query = 'call getFullPurchaseInfoByPurchaseId(?)';
             $stmt = $conn->prepare($query);
             $stmt->bindParam(1, $purchaseId, PDO::PARAM_INT, 11);
             $stmt->execute();

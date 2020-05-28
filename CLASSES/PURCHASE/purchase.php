@@ -39,10 +39,14 @@ class Purchase
         foreach($purchaseList as $purchase){
             // Liste contenant tous les informations nécéssaire pour afficher le contenu de la facture
             $fullPurchaseInfo = $TDG->get_full_purchase_info_by_purchase_Id($purchase['id']);
+            echo "<div>
+            ".var_dump($fullPurchaseInfo)."
+            </div>";
             echo "
             <div class='item'>
                 <div class='info'>
-                    <h6 class='title'>Achat<h6>
+                    <h6 class='title'>Purchase</h6>
+                    <h8 class='id'>number: ".$purchase['id']."</h8>
                 </div>
                 <div class='info'>
                     <h6 class='date'>".$purchase['date']."<h6>
