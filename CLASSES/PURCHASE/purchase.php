@@ -37,11 +37,6 @@ class Purchase
         }
 
         foreach($purchaseList as $purchase){
-            // Liste contenant tous les informations nécéssaire pour afficher le contenu de la facture
-            $fullPurchaseInfo = $TDG->get_full_purchase_info_by_purchase_Id($purchase['id']);
-            echo "<div>
-            ".var_dump($fullPurchaseInfo)."
-            </div>";
             echo "
             <div class='item'>
                 <div class='info'>
@@ -52,13 +47,39 @@ class Purchase
                     <h6 class='date'>".$purchase['date']."<h6>
                 </div>
                 <div class='button-container'>
-                    <form method='get' action=''>
+                    <form method='get' action='./receipt.php'>
                         <input type='hidden' name='purchaseId' value='".$purchase['id']."'/>
-                        <button type='submit' class='btn btn-primary'>Voir details</button>   
+                        <button class='btn btn-primary trigger_popup_fricc'>Voir details</button>
                     </form>
                 </div>
             </div>
             ";
         }
+    }
+
+    public function loadReceipt($purchaseId, $auditorium, $show){
+        $TDG = PurchaseTDG::getInstance();
+        $fullPurchaseInfo = $TDG->get_full_purchase_info_by_purchase_Id($purchaseId);
+        //var_dump($fullPurchaseInfo);
+        $prixTotal = floatval(0);
+        foreach($fullPurchaseInfo as $purchaseInfo){
+            $prixTotal += intval($purchaseInfo['total']);
+            $section = $auditorium->getSectionById($purchaseInfo['section_id']);
+            $audi = $auditorium->getByRepresentationId($purchaseInfo['representation_id']);
+            $s = $show->getByID($purchaseInfo['show_id']);
+
+            echo "
+            <h4 id='showName'>".$s['name']."</h4>
+            <p id='date'>Date: ".$purchaseInfo['date']."</p>
+            <p id='auditorium'>Auditorium: ".$audi['name']."</p>
+            <p id='section'>Section: ".$section['color']."</p>
+            <p id='ticketId'>ticket number: ".$purchaseInfo['ticket_id']."</p>
+            <p id='total'>Prix: ".$purchaseInfo['total']."$</p>
+            ";
+        }
+        //var_dump($prixTotal);
+        echo " <hr color='black'>
+        <p id='prixTotal'>Total: ".$prixTotal."$</p>
+        ";
     }
 }
