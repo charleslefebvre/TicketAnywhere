@@ -1,14 +1,17 @@
 <?php
     session_start();
-    
+    include_once __DIR__ . "/../UTILS/loader.php";
+    include_once "../CLASSES/SHOW/show.php";
+    include_once "../CLASSES/REPRESENTATION/representation.php";
+    include_once "../CLASSES/AUDITORIUM/auditorium.php";
+
     $showId = $_POST['showId'];
     $representationId = $_POST['representationId'];
 
-    $cart = $_SESSION['panier'];
+    $cart = array();
 
-    for($i = 0; $i < count($cart); ++$i){
-        if($cart[$i]['showId'] == $showId && $cart[$i]['representationId'] == $representationId){
-            unset($cart[$i]);            
+    foreach($_SESSION['panier'] as $item){
+        if($item['showId'] == $showId && $item['representationId'] == $representationId){         
             $_SESSION['panier'] = $cart;
             if(count($_SESSION['panier']) == 0){
                 echo "<h3 id='emptyCart'>Your cart is empty</h3>
@@ -22,5 +25,6 @@
             }
             break;
         }
+        array_push($cart,$item);
     }
 ?>
