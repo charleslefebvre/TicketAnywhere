@@ -60,7 +60,6 @@ class Purchase
     public function loadReceipt($purchaseId, $auditorium, $show){
         $TDG = PurchaseTDG::getInstance();
         $fullPurchaseInfo = $TDG->get_full_purchase_info_by_purchase_Id($purchaseId);
-        //var_dump($fullPurchaseInfo);
         $prixTotal = floatval(0);
         foreach($fullPurchaseInfo as $purchaseInfo){
             $prixTotal += intval($purchaseInfo['total']);

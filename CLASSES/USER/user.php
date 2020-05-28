@@ -79,6 +79,7 @@ class User
     {
         $TDG = UserTDG::getInstance();
         $res = $TDG->get_by_id($id);
+        var_dump($res);
 
         if (!$res) {
             $TDG = null;
