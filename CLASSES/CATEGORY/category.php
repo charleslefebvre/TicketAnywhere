@@ -15,5 +15,12 @@ class Category
         $TDG = null;
         return $list;
     }
+
+    public function getMostPopularCategory(){
+        $TDG = CategoryTDG::getInstance();
+        $list = $TDG->get_most_popular_category();
+        $TDG = null;
+        return $list;
+    }
 }
 ?>

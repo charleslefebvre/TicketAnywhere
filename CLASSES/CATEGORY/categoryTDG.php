@@ -32,5 +32,20 @@ class CategoryTDG extends DBAO{
         $conn = null;
         return $result;
     }
+    public function get_most_popular_category(){
+        try{
+            $conn = $this->connect();
+            $query = 'call getMostPopularCategory()';
+            $stmt = $conn->prepare($query);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
+        }
+        catch (PDOException $e){
+            echo "Error: " . $e->getMessage();
+        }
+        $conn = null;
+        return $result;
+    }
 }
 ?>
