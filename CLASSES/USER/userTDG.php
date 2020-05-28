@@ -78,4 +78,22 @@ class UserTDG extends DBAO{
         return $result;
     }
 
+    public function get_most_loyal_customer($amount){
+        try{
+            $conn = $this->connect();
+            $query = 'call getMostLoyalCustomer(?)';
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(1, $amount, PDO::PARAM_INT, 11);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
+        }
+        catch(PDOException $e)
+        {
+            $result = null;
+        }
+        $conn = null;
+        return $result;
+    }
+
 }

@@ -90,4 +90,10 @@ class User
         $TDG = null;
         return $res['email'];
     }
+    public function getMostLoyalCustomer($amount){
+        $TDG = UserTDG::getInstance();
+        $userList = $TDG->get_most_loyal_customer($amount);
+        $TDG = null;
+        return $userList;
+    }
 }

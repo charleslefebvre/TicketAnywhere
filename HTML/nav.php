@@ -1,6 +1,6 @@
 <?php
     $userArray = array();
-    $dropDownItems = array('About');
+    $dropDownItems = array('about');
     if(!isset($_SESSION['userID'])){
         $userButtons = array('Login','Register');
         foreach($userButtons as $button){
@@ -21,8 +21,10 @@
                 <a class='dropdown-item' href='logout.php'>Logout</a>
             </div>
         </div>");
-        if($_SESSION['admin'] == '1')
+        if($_SESSION['admin'] == '1'){
             array_push($dropDownItems,'addShow');
+            array_push($dropDownItems,'statistique');
+        }
     }
 ?>
 <div id="navbar">
