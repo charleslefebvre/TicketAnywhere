@@ -21,9 +21,9 @@ foreach($panier as $item){
 
 // ENVOIE DU EMAIL
 $header = "TicketAnywhere Confirmation\r\n";
-$header . 'From:"http://167.114.152.54/~billetpartout06/"<support@ticketanywhere>' . "\n";
-$header . 'Content-Type:text/html; charset="uft-8"' . "\n";
-$header . 'Content-Transfer-Encoding: 8bit';
+$header .= 'From:"http://167.114.152.54/~billetpartout06/"<support@ticketanywhere>' . "\n";
+$header .= 'Content-Type:text/html; charset="uft-8"' . "\n";
+$header .= 'Content-Transfer-Encoding: 8bit';
 $message = 'Cet email vous a été envoyé automatiquement lors de votre achat pour confirmer que celui ci a bien été effectué.';
 mail($_SESSION['userEmail'], 'Confirmation de votre achat', $message, $header);
 
